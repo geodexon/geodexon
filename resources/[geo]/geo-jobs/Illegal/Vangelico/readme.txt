@@ -1,0 +1,1 @@
+put vangelico.lua inside qb-doorlocks/configs

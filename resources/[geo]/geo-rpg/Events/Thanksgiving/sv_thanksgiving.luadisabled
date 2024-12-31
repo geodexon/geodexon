@@ -1,0 +1,95 @@
+local nodePeds = {}
+
+CreateThread(function()
+    while true do
+        Wait(1000)
+        ThanksHens()
+        Wait(60000 * 20)
+    end
+end)
+
+function ThanksHens()
+    for k,v in pairs(ThanksNodes) do
+        if not nodePeds[k] then nodePeds[k] = {} end
+
+        if #nodePeds[k] > 4 then 
+            for i = #nodePeds[k], 1, -1 do
+                if Vdist3(GetEntityCoords(nodePeds[k][i]), v) >= 100.0 then
+                    DeleteEntity(nodePeds[k][i])
+                    table.remove(nodePeds[k], i)
+                end
+            end
+        end
+
+        if #nodePeds[k] > 4 then 
+            print(#nodePeds[k]..' still alive')
+            goto skip 
+        end
+
+        for i=1,10 do
+            CreateThread(function()
+                local ped = CreatePed(1, 'a_c_hen', ThanksNodes[k], true, true)
+                table.insert(nodePeds[k], ped)
+                local index = #nodePeds[k]
+                while NetworkGetEntityOwner(ped) == -1 do
+                    Wait(100)
+                end
+                Entity(ped).state.hen = true
+                TriggerClientEvent('Thanksgiving:Hen', NetworkGetEntityOwner(ped), NetworkGetNetworkIdFromEntity(ped), ThanksNodes[k])
+            
+                while GetEntityHealth(ped) == 0 do
+                    Wait(500)
+                end
+
+                CreateThread(function()
+                    while DoesEntityExist(ped) and GetEntityHealth(ped) > 0 do
+                        local owner = NetworkGetEntityOwner(ped)
+                        if owner ~= -1 then
+                            TriggerClientEvent('Thanksgiving:Hen', NetworkGetEntityOwner(ped), NetworkGetNetworkIdFromEntity(ped), ThanksNodes[k])
+                        end
+                        Wait(30000)
+                    end
+                end)
+
+                while DoesEntityExist(ped) and GetEntityHealth(ped) > 0 do
+                    Wait(500)
+                end
+
+                for key,val in pairs(nodePeds[k]) do
+                    if val == ped then table.remove(nodePeds[k], key) end
+                end
+
+                SetTimeout(120000, function()
+                    if DoesEntityExist(ped) and Entity(ped).state.hen then DeleteEntity(ped) end
+                end)
+            end)
+        end
+        ::skip::
+    end
+end
+
+AddEventHandler('Hunted', function(source, model, ent)
+    if model == `a_c_hen` and Entity(ent).state.hen then
+        local item = 'feather_turkey'
+        if Random(100) <= 3 then
+            item = item..'_gold'
+        end
+
+        if Random(100) <= 2 then
+            item = item..'_hq'
+        end
+
+        exports['geo-inventory']:ReceiveItem('Player', source, item, 1)
+        DeleteEntity(ent)
+    end
+end)
+
+AddEventHandler('onResourceStop', function(res)
+    if res == GetCurrentResourceName() then
+        for k,v in pairs(nodePeds) do
+            for e,va in pairs(v) do
+                DeleteEntity(va)
+            end
+        end
+    end
+end)

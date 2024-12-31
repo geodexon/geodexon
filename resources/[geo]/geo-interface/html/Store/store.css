@@ -1,0 +1,67 @@
+.Store {
+    width: 90vh;
+    height: 30vh;
+    left: calc(50% - 30vh);
+    top: 35vh;
+}
+
+.Store table {
+    width: 100%;
+    font-size: 1.75vh;
+    color: lightgray;
+}
+
+.Store .storenum {
+    background: none;
+    outline: none;
+    border: none;
+    color: lightgray;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.Store tr:hover {
+    background-color: rgb(calc(var(--main-bgR) + 30), calc(var(--main-bgG) + 30), calc(var(--main-bgB) + 30));
+}
+
+.ConfirmWindow {
+    width: 40vh;
+    height: 20vh;
+
+    left: calc(50% - 20vh);
+    top: calc(50% - 10vh);
+}
+
+.ConfirmWindow h1 {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: lightgray;
+    font-size: 2vh;
+}
+
+.confirmdia {
+    position: absolute;
+    width: 20%;
+    height: 3vh;
+    border: 0.1vh solid var(--main-bg);
+    border-radius: 5vh;
+    font-size: 1.5vh;
+    color: lightgray;
+
+    background: linear-gradient(0deg, 
+        rgba(calc(var(--main-bgR) + 20), calc(var(--main-bgG) + 20), calc(var(--main-bgB) + 20), var(--windows)) 0%,
+        rgba(calc(var(--main-bgR) + 10), calc(var(--main-bgG) + 10), calc(var(--main-bgB) + 10), var(--windows)) 15%, 
+        rgba(calc(var(--main-bgR) + 10), calc(var(--main-bgG) + 10), calc(var(--main-bgB) + 10), var(--windows)) 50%, 
+        rgba(calc(var(--main-bgR) + 20), calc(var(--main-bgG) + 20), calc(var(--main-bgB) + 20), var(--windows)) 51%);
+}
+
+.confirma {
+    right: 10vh;
+    bottom: 2vh;
+}
+
+.denya {
+    left: 10vh;
+    bottom: 2vh;
+}

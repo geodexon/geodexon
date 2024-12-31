@@ -1,0 +1,554 @@
+local breakPeds = {}
+RegisterNetEvent('Halloween.Ouchy', function()
+    ApplyDamageToPed(Shared.Ped, 5, true)
+end)
+
+RegisterNetEvent('Halloween.Outline', function(ent)
+    if NetworkDoesEntityExistWithNetworkId(ent) then
+        ent = NetworkGetEntityFromNetworkId(ent)
+        while DoesEntityExist(ent) and not IsEntityDead(ent) do
+            if not IsEntityPlayingAnim(ent, "anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center", 1) then
+                LoadAnim("anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center")
+                Shared.GetEntityControl(ent)
+                TaskPlayAnim(ent, "anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center", 10.0, 1.0, -1, 51, 1.0, 0, 0, 0)
+            end
+
+            if breakPeds[ent] then
+                breakPeds[ent] = nil
+                break
+            end
+
+
+            TriggerServerEvent('3DSound', PedToNet(ent), 'skeleton.wav', 0.3, 10.0)
+            Wait(4000)
+        end
+    end
+end)
+
+RegisterNetEvent('Halloween.RemoveOutline', function(ent)
+    if NetworkDoesEntityExistWithNetworkId(ent) then
+        ent = NetworkGetEntityFromNetworkId(ent)
+        breakPeds[ent] = true
+    end
+end)
+
+RegisterNetEvent('Halloween.Spellcaster', function(ent, pos)
+    if Vdist3(pos, GetEntityCoords(Shared.Ped)) <= 100.0 then
+        local ent = NetworkGetEntityFromNetworkId(ent)
+        local time = GetGameTimer()
+
+        if not HasNamedPtfxAssetLoaded("core") then
+            RequestNamedPtfxAsset("core")
+            while not HasNamedPtfxAssetLoaded("core") do
+                Wait(0)
+            end
+        end
+        UseParticleFxAssetNextCall("core")
+        local particle = StartParticleFxLoopedOnEntity("proj_flare_trail", ent, 0.0, 0.35, 0.2, 0.0, -2.0, 0.8, 3.0, 1, 0, 1, 1)
+
+        while Shared.TimeSince(time) < 5000 do
+            Wait(0)
+            DrawSphere(pos, 10.0, 255, 0, 0, 0.2)
+
+            if IsEntityDead(ent) then 
+                RemoveParticleFx(particle, 1)
+                return 
+            end
+        end
+
+        RemoveParticleFx(particle, 1)
+        if Vdist3(GetEntityCoords(Shared.Ped), pos) <= 10.0 then
+            ApplyDamageToPed(Shared.Ped, 30, true)
+
+            if not HasNamedPtfxAssetLoaded("core") then
+                RequestNamedPtfxAsset("core")
+                while not HasNamedPtfxAssetLoaded("core") do
+                    Wait(0)
+                end
+            end
+            UseParticleFxAssetNextCall("core")
+            StartNetworkedParticleFxNonLoopedOnEntity("ent_dst_electrical", Shared.Ped, 0.0, 0.0, 0.0, 0.0, -2.0, 0.8, 5.0, 1, 0, 1, 1)
+        end
+    end
+end)
+
+local skeletonKing
+RegisterNetEvent('SkeletonKing.Magic', function(ent, pos, attack, target)
+    if Vdist3(pos, GetEntityCoords(Shared.Ped)) <= 100.0 then
+        local ent = NetworkGetEntityFromNetworkId(ent)
+        local time = GetGameTimer()
+
+        exports['geo-interface']:InterfaceMessage({
+            interface = 'SkillBar',
+            data = {'Skeleton King', Entity(ent).state.health, 250},
+            boss = true
+        })
+
+        if not skeletonKing then
+            CreateThread(function()
+                skeletonKing = ent
+
+                if not HasNamedPtfxAssetLoaded("core") then
+                    RequestNamedPtfxAsset("core")
+                    while not HasNamedPtfxAssetLoaded("core") do
+                        Wait(0)
+                    end
+                end
+                UseParticleFxAssetNextCall("core")
+                local pParticle = StartParticleFxLoopedOnEntityBone("fire_wrecked_plane_cockpit", skeletonKing, 0.0, 0.0, 0.0, 0.0, 0.00, 0.0, GetEntityBoneIndexByName(skeletonKing, 'FACIAL_facialRoot') , 0.5, 1, 0, 1, 1)
+            
+                while DoesEntityExist(skeletonKing) and GetEntityHealth(skeletonKing) > 0 do
+                    exports['geo-interface']:InterfaceMessage({
+                        interface = 'SkillBar',
+                        data = {'Skeleton King', Entity(ent).state.health, 250},
+                        boss = true
+                    })
+
+                    Wait(250)
+                end
+                RemoveParticleFx(pParticle)
+                exports['geo-interface']:InterfaceMessage({
+                    interface = 'SkillBar',
+                })
+                skeletonKing = nil
+            end)
+        end
+
+        if NetworkGetEntityOwner(ent) == PlayerId() then
+            SetEntityInvincible(ent, true)
+            SetEntityProofs(ent, true, true, true, true, true, true, true, true)
+            RequestWeaponAsset(0x7F7497E5, 31, 26)
+            SetPedConfigFlag(ent, 295, true)
+            LoadAnim("anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center")
+            TaskPlayAnim(ent, "anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center", 10.0, 1.0, -1, 51, 1.0, 0, 0, 0)
+            SetBlockingOfNonTemporaryEvents(ent, true)
+
+            if attack == 1 then
+                TaskTurnPedToFaceCoord(ent, pos, 1000)
+                Wait(1000)
+
+                ShootSingleBulletBetweenCoords(GetOffsetFromEntityInWorldCoords(ent, 0.0, 2.0, 0.0), pos, true, true, 0x7F7497E5, 0, true, false, 40.0)
+            end
+
+            if attack > 2 then
+                target = NetworkGetEntityFromNetworkId(target)
+                TaskGoToEntity(ent, target, 10000, 1.0, 50.0, 1.0, 1)
+
+                local time = GetGameTimer()
+                while Shared.TimeSince(time) < 10000 do
+                    Wait(250)
+                    if Vdist3(GetEntityCoords(ent), GetEntityCoords(target)) <= 2.0 then
+                        Task.Run('SkeletonBloop', GetPlayerServerId(NetworkGetPlayerIndexFromPed(target)))
+                        TaskGoToCoordAnyMeans(ent, vector3(204.11, -926.43, 30.7), 10.0, 0, 0, 786603, 1.0)
+                        break
+                    end
+                end
+                TaskGoToCoordAnyMeans(ent, vector3(204.11, -926.43, 30.7), 10.0, 0, 0, 786603, 1.0)
+            end
+        end
+
+        if attack == 2 then
+            if not HasNamedPtfxAssetLoaded("core") then
+                RequestNamedPtfxAsset("core")
+                while not HasNamedPtfxAssetLoaded("core") do
+                    Wait(0)
+                end
+            end
+            UseParticleFxAssetNextCall("core")
+            local particle = StartParticleFxLoopedOnEntity("proj_flare_trail", ent, 0.0, 0.35, 0.2, 0.0, -2.0, 0.8, 3.0, 1, 0, 1, 1)
+
+            while Shared.TimeSince(time) < 4000 do
+                Wait(0)
+                DrawSphere(pos, 10.0, 255, 0, 255, 0.2)
+
+                if IsEntityDead(ent) then 
+                    RemoveParticleFx(particle, 1)
+                    return 
+                end
+            end
+
+            RemoveParticleFx(particle, 1)
+            if Vdist3(GetEntityCoords(Shared.Ped), pos) <= 10.0 then
+                ApplyDamageToPed(Shared.Ped, 50, true)
+
+                if not HasNamedPtfxAssetLoaded("core") then
+                    RequestNamedPtfxAsset("core")
+                    while not HasNamedPtfxAssetLoaded("core") do
+                        Wait(0)
+                    end
+                end
+                UseParticleFxAssetNextCall("core")
+                StartNetworkedParticleFxNonLoopedOnEntity("ent_dst_electrical", Shared.Ped, 0.0, 0.0, 0.0, 0.0, -2.0, 0.8, 5.0, 1, 0, 1, 1)
+            end
+        end
+    else
+        exports['geo-interface']:InterfaceMessage({
+            interface = 'SkillBar',
+        })
+    end
+end)
+
+local skeletonOverLord
+RegisterNetEvent('skeletonOverLord.Magic', function(ent, pos, attack, target)
+    if Vdist3(pos, GetEntityCoords(Shared.Ped)) <= 100.0 then
+        local ent = NetworkGetEntityFromNetworkId(ent)
+        local time = GetGameTimer()
+
+        local minutes, seconds = secondsToMinutesAndSeconds(Entity(ent).state.time)
+        exports['geo-interface']:InterfaceMessage({
+            interface = 'SkillBar',
+            data = {'Skeleton Overlord - '..('%s:%s'):format(minutes, seconds), Entity(ent).state.health, 650},
+            boss = true
+        })
+
+        if not skeletonOverLord then
+            CreateThread(function()
+                skeletonOverLord = ent
+
+                if not HasNamedPtfxAssetLoaded("core") then
+                    RequestNamedPtfxAsset("core")
+                    while not HasNamedPtfxAssetLoaded("core") do
+                        Wait(0)
+                    end
+                end
+                UseParticleFxAssetNextCall("core")
+                local pParticle = StartParticleFxLoopedOnEntityBone("fire_wheel", skeletonOverLord, 0.0, 0.0, -0.98, 0.0, 90.00, 0.0, 0 , 0.5, 1, 0, 1, 1)
+                SetParticleFxLoopedColour(pParticle, 0.0, 0.0, 255.0, 0)
+            
+                while DoesEntityExist(skeletonOverLord) and GetEntityHealth(skeletonOverLord) > 0 do
+                    local minutes, seconds = secondsToMinutesAndSeconds(Entity(ent).state.time)
+                    exports['geo-interface']:InterfaceMessage({
+                        interface = 'SkillBar',
+                        data = {'Skeleton Overlord - '..('%s:%s'):format(minutes, seconds), Entity(ent).state.health, 750},
+                        boss = true
+                    })
+
+                    Wait(250)
+                end
+                RemoveParticleFx(pParticle)
+                exports['geo-interface']:InterfaceMessage({
+                    interface = 'SkillBar',
+                })
+                skeletonOverLord = nil
+            end)
+        end
+
+        if NetworkGetEntityOwner(ent) == PlayerId() then
+            SetEntityInvincible(ent, true)
+            SetEntityProofs(ent, true, true, true, true, true, true, true, true)
+            RequestWeaponAsset(0x7F7497E5, 31, 26)
+            SetPedConfigFlag(ent, 295, true)
+            LoadAnim("anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center")
+            TaskPlayAnim(ent, "anim@amb@casino@mini@dance@dance_solo@female@var_a@","med_center", 10.0, 1.0, -1, 51, 1.0, 0, 0, 0)
+            SetBlockingOfNonTemporaryEvents(ent, true)
+
+            if attack == 1 then
+                TaskTurnPedToFaceCoord(ent, pos, 1000)
+                Wait(1000)
+
+                ShootSingleBulletBetweenCoords(GetOffsetFromEntityInWorldCoords(ent, 0.0, 2.0, 0.0), pos + vec(0.0, 0.0, 0.125), true, true, 0x7F7497E5, 0, true, false, 100.0)
+            end
+
+            if attack == 3 then
+                target = NetworkGetEntityFromNetworkId(target)
+                BulletHell(target)
+            end
+
+            if attack > 3 then
+                target = NetworkGetEntityFromNetworkId(target)
+                TaskGoToEntity(ent, target, 10000, 1.0, 50.0, 1.0, 1)
+
+                local time = GetGameTimer()
+                while Shared.TimeSince(time) < 10000 do
+                    Wait(250)
+                    if Vdist3(GetEntityCoords(ent), GetEntityCoords(target)) <= 2.0 then
+                        Task.Run('SkeletonBloop', GetPlayerServerId(NetworkGetPlayerIndexFromPed(target)))
+                        TaskGoToCoordAnyMeans(ent, vector3(5478.29, -5846.21, 21.96), 10.0, 0, 0, 786603, 1.0)
+                        break
+                    end
+                end
+            end
+        end
+
+        if attack == 2 then
+            if not HasNamedPtfxAssetLoaded("core") then
+                RequestNamedPtfxAsset("core")
+                while not HasNamedPtfxAssetLoaded("core") do
+                    Wait(0)
+                end
+            end
+            UseParticleFxAssetNextCall("core")
+            local particle = StartParticleFxLoopedOnEntity("proj_flare_trail", ent, 0.0, 0.35, 0.2, 0.0, -2.0, 0.8, 3.0, 1, 0, 1, 1)
+
+            while Shared.TimeSince(time) < 4000 do
+                Wait(0)
+                DrawSphere(pos, 10.0, 255, 0, 255, 0.2)
+
+                if IsEntityDead(ent) then 
+                    RemoveParticleFx(particle, 1)
+                    return 
+                end
+            end
+
+            RemoveParticleFx(particle, 1)
+            if Vdist3(GetEntityCoords(Shared.Ped), pos) <= 10.0 then
+                ApplyDamageToPed(Shared.Ped, 50, true)
+
+                if not HasNamedPtfxAssetLoaded("core") then
+                    RequestNamedPtfxAsset("core")
+                    while not HasNamedPtfxAssetLoaded("core") do
+                        Wait(0)
+                    end
+                end
+                UseParticleFxAssetNextCall("core")
+                StartNetworkedParticleFxNonLoopedOnEntity("ent_dst_electrical", Shared.Ped, 0.0, 0.0, 0.0, 0.0, -2.0, 0.8, 5.0, 1, 0, 1, 1)
+            end
+        end
+    else
+        exports['geo-interface']:InterfaceMessage({
+            interface = 'SkillBar',
+        })
+    end
+end)
+
+RegisterNetEvent('Overlord.Audio', function(pos, audio)
+    if Vdist3(pos, GetEntityCoords(Shared.Ped)) <= 100.0 then
+        TriggerEvent('Shared.PlaySounds', audio, 1.0)
+    end
+end)
+
+RegisterNetEvent('SkeletonBloop', function()
+    ApplyForceToEntityCenterOfMass(Shared.Ped, 1, 0.0, -100.0, 10.0, 1, 1, 1, 1)
+    ApplyDamageToPed(Shared.Ped, 20, true)
+end)
+
+RegisterNetEvent('Overlord.PopOut', function(pos)
+    if not HasNamedPtfxAssetLoaded("cut_finale1") then
+        RequestNamedPtfxAsset("cut_finale1")
+        while not HasNamedPtfxAssetLoaded("cut_finale1") do
+            Wait(0)
+        end
+    end
+    UseParticleFxAssetNextCall("cut_finale1")
+    local particle = StartNetworkedParticleFxNonLoopedAtCoord("cs_finale1_car_explosion", pos, 0.0, 0.0, 0.0, 1.0, 1, 1, 1)
+
+    Wait(2500)
+    RemoveParticleFx(particle, 1)
+end)
+
+CreateThread(function()
+    for _, ped in pairs(GetGamePool('CPed')) do
+        if GetEntityModel(ped) == `skeleton` and not IsPedAPlayer() then
+            DeleteEntity(ped)
+        end
+    end
+    while true do
+        if skeletonKing ~= 0 and Shared.CurrentVehicle ~= 0 and Vdist3(GetEntityCoords(Shared.Ped), GetEntityCoords(skeletonKing)) <= 20.0 then
+            ApplyForceToEntityCenterOfMass(Shared.CurrentVehicle, 1, 0.0, -100.0, 10.0, 1, 1, 1, 1)
+        end
+
+        if skeletonOverLord ~= 0 and Shared.CurrentVehicle ~= 0 and Vdist3(GetEntityCoords(Shared.Ped), GetEntityCoords(skeletonKing)) <= 20.0 then
+            ApplyForceToEntityCenterOfMass(Shared.CurrentVehicle, 1, 0.0, -100.0, 10.0, 1, 1, 1, 1)
+        end
+        Wait(250)
+    end
+end)
+
+AddEventHandler('ShotFired', function(ent)
+    if skeletonKing and ent == skeletonKing then
+        TriggerServerEvent('BoneRattle')
+    end
+
+    if skeletonOverLord and ent == skeletonOverLord then
+        TriggerServerEvent('BoneRattle2')
+    end
+end)
+
+function secondsToMinutesAndSeconds(totalSeconds)
+    if not totalSeconds then return 0, 0 end
+    local minutes = math.floor(totalSeconds / 60)
+    local seconds = totalSeconds % 60
+    return minutes, seconds
+end
+
+function BulletHell(target)
+
+    local offsets = {
+        {0.0, 5.0, 2.5},
+        {5.0, 0.0, 2.5},
+        {-5.0, 0.0, 2.5},
+        {0.0, -5.0, 2.5},
+        {5.0, 5.0, 2.5},
+        {-5.0, 5.0, 2.5},
+        {-5.0, -5.0, 2.5},
+        {5.0, -5.0, 2.5}
+    }
+
+    for i=1,8 do
+        CreateThread(function()
+            RequestWeaponAsset(`WEAPON_CARBINERIFLE`)
+            while not HasWeaponAssetLoaded(`WEAPON_CARBINERIFLE`) do
+                Wait(0)
+            end
+            local obj = CreateWeaponObject(`WEAPON_CARBINERIFLE`, 0, GetOffsetFromEntityInWorldCoords(target, vec(table.unpack(offsets[i]))), true, 1.0, 0);
+            while not NetworkGetEntityIsNetworked(obj) do
+                Wait(50)
+                NetworkRegisterEntityAsNetworked(obj)
+            end
+
+            local netID = NetworkGetNetworkIdFromEntity(obj)
+            NetworkSetNetworkIdDynamic(netID, false)
+            SetNetworkIdCanMigrate(netID, true)
+            SetNetworkIdExistsOnAllMachines(netID, true)
+            SetEntityAsMissionEntity(obj, true)
+
+            
+            SetWeaponObjectTintIndex(obj, 6)
+            local cam = CreateCam('DEFAULT_SCRIPTED_CAMERA', true)
+            while not DoesCamExist(cam) do
+                Wait(0)
+            end
+            SetCamCoord(cam ,GetEntityCoords(obj))
+            PointCamAtCoord(cam, GetEntityCoords(target))
+    
+            Wait(0)
+            local rot = GetCamRot(cam, 0)
+
+
+            local entPos = GetEntityCoords(obj)
+            local myPos = GetEntityCoords(target)
+
+            local offsets = (entPos.z - myPos.z) * 12
+
+    
+            Shared.GetEntityControl(obj)
+            SetEntityRotation(obj, rot.x, rot.y + offsets, rot.z + 90.0, 0)
+
+            local pos = entPos + (CameraForwardVec(cam) * 1.0)
+
+            DestroyCam(cam)
+
+            local pPos = GetEntityCoords(target)
+
+            Wait(1000)
+            local time = GetGameTimer()
+            while Shared.TimeSince(time) <= 5000 do
+                Wait(100)
+                ShootSingleBulletBetweenCoords(pos, pPos, 1, true, `WEAPON_CARBINERIFLE`,  0, true, false, 0.1)
+            end
+    
+            TriggerServerEvent('DeleteEntity', NetworkGetNetworkIdFromEntity(obj))
+        end)
+    end
+end
+
+function CameraForwardVec(cam)
+    local rot = (math.pi / 180.0) * (cam and GetCamRot(cam, 0) or GetGameplayCamRot(2))
+    return vector3(-math.sin(rot.z) * math.abs(math.cos(rot.x)), math.cos(rot.z) * math.abs(math.cos(rot.x)), math.sin(rot.x))
+end
+
+function calculateRotationFromDirection(direction)
+    local yaw = math.atan2(direction.x, direction.z)
+    local pitch = math.asin(direction.y)
+    local roll = 0 -- Assuming no roll is needed
+
+    return vec(pitch, roll, yaw)
+end
+
+local map = {"h4_islandairstrip", "h4_islandairstrip_props", "h4_islandx_mansion", "h4_islandx_mansion_props", "h4_islandx_props", "h4_islandxdock", "h4_islandxdock_props", "h4_islandxdock_props_2", "h4_islandxtower", "h4_islandx_maindock", "h4_islandx_maindock_props", "h4_islandx_maindock_props_2", "h4_IslandX_Mansion_Vault", "h4_islandairstrip_propsb", "h4_beach", "h4_beach_props", "h4_beach_bar_props", "h4_islandx_barrack_props", "h4_islandx_checkpoint", "h4_islandx_checkpoint_props", "h4_islandx_Mansion_Office", "h4_islandx_Mansion_LockUp_01", "h4_islandx_Mansion_LockUp_02", "h4_islandx_Mansion_LockUp_03", "h4_islandairstrip_hangar_props", "h4_IslandX_Mansion_B", "h4_islandairstrip_doorsclosed", "h4_Underwater_Gate_Closed", "h4_mansion_gate_closed", "h4_aa_guns", "h4_IslandX_Mansion_GuardFence", "h4_IslandX_Mansion_Entrance_Fence", "h4_IslandX_Mansion_B_Side_Fence", "h4_IslandX_Mansion_Lights", "h4_islandxcanal_props", "h4_beach_props_party", "h4_islandX_Terrain_props_06_a", "h4_islandX_Terrain_props_06_b", "h4_islandX_Terrain_props_06_c", "h4_islandX_Terrain_props_05_a", "h4_islandX_Terrain_props_05_b", "h4_islandX_Terrain_props_05_c", "h4_islandX_Terrain_props_05_d", "h4_islandX_Terrain_props_05_e", "h4_islandX_Terrain_props_05_f", "H4_islandx_terrain_01", "H4_islandx_terrain_02", "H4_islandx_terrain_03", "H4_islandx_terrain_04", "H4_islandx_terrain_05", "H4_islandx_terrain_06", "h4_ne_ipl_00", "h4_ne_ipl_01", "h4_ne_ipl_02", "h4_ne_ipl_03", "h4_ne_ipl_04", "h4_ne_ipl_05", "h4_ne_ipl_06", "h4_ne_ipl_07", "h4_ne_ipl_08", "h4_ne_ipl_09", "h4_nw_ipl_00", "h4_nw_ipl_01", "h4_nw_ipl_02", "h4_nw_ipl_03", "h4_nw_ipl_04", "h4_nw_ipl_05", "h4_nw_ipl_06", "h4_nw_ipl_07", "h4_nw_ipl_08", "h4_nw_ipl_09", "h4_se_ipl_00", "h4_se_ipl_01", "h4_se_ipl_02", "h4_se_ipl_03", "h4_se_ipl_04", "h4_se_ipl_05", "h4_se_ipl_06", "h4_se_ipl_07", "h4_se_ipl_08", "h4_se_ipl_09", "h4_sw_ipl_00", "h4_sw_ipl_01", "h4_sw_ipl_02", "h4_sw_ipl_03", "h4_sw_ipl_04", "h4_sw_ipl_05", "h4_sw_ipl_06", "h4_sw_ipl_07", "h4_sw_ipl_08", "h4_sw_ipl_09", "h4_islandx_mansion", "h4_islandxtower_veg", "h4_islandx_sea_mines", "h4_islandx", "h4_islandx_barrack_hatch", "h4_islandxdock_water_hatch", "h4_beach_party"}
+
+for k,v in pairs(map) do
+    RemoveIpl(v)
+end
+
+Citizen.InvokeNative(0xF74B1FFA4A15FBEA, 0)
+SetDeepOceanScaler(1.0)
+
+local portal = false
+RegisterNetEvent('Skeleton.Portal', function(bool)
+    if portal and bool then return end
+
+    portal = bool
+    loaded = false
+
+    if not portal then return end
+
+    local enteredPortal = false
+    local handler = AddEventHandler('Poly.Zone', function(zone, inZone)
+        if zone == 'Overlord' and inZone then
+            Citizen.InvokeNative(0xF74B1FFA4A15FBEA, 1)
+            SetDeepOceanScaler(0.0)
+            print('loaded')
+            for k,v in pairs(map) do
+                RequestIpl(v)
+            end
+            Warp(vector3(5469.23, -5770.19, 23.59), 180.0)
+            Wait(2000)
+            TriggerEvent('Shared.PlaySounds', 'overlord_challenge.mp3', 1.0)
+            enteredPortal = true
+        end
+    end)
+
+    if portal then
+        AddBoxZone(vector3(213.2, -920.33, 30.69), 8.85, 5.4, {
+            name="Overlord",
+            heading=325,
+            --debugPoly=true,
+            minZ=29.69,
+            maxZ=33.69
+          })
+    end
+
+    RequestStreamedTextureDict('portal')
+    while not HasStreamedTextureDictLoaded('portal') do
+        Wait(0)
+    end
+
+    while portal do
+        for i=0,89 do
+            local str = i
+            if i < 10 then
+                str = tostring('0'..tostring(i))
+            end
+            DrawMarker(9, vector3(211.00, -923.59, 31.69), 7.0, 10.0, 0.0, 90.0, 220.0, 40.0, 5.5, 5.5, 5.5, 255, 255, 255, 255, 0, 0, 2, 0,'portal', tostring(str), false)
+            DrawMarker(9, vector3(215.49, -917.22, 31.69), 7.0, 10.0, 0.0, 90.0, 220.0, 40.0, 5.5, 5.5, 5.5, 255, 255, 255, 255, 0, 0, 2, 0,'portal', tostring(str), false)
+            Wait(0)
+        end
+    end
+
+    if not enteredPortal then return end
+    if Vdist3(GetEntityCoords(Shared.Ped), vector3(5478.29, -5846.21, 21.96)) > 500.0 then
+        return
+    end
+
+    Wait(Random(10000, 30000))
+
+    if not HasNamedPtfxAssetLoaded("scr_rcbarry1") then
+        RequestNamedPtfxAsset("scr_rcbarry1")
+        while not HasNamedPtfxAssetLoaded("scr_rcbarry1") do
+            Wait(0)
+        end
+    end
+    UseParticleFxAssetNextCall("scr_rcbarry1")
+    FreezeEntityPosition(Shared.Ped, true)
+    local particle = StartNetworkedParticleFxNonLoopedAtCoord("scr_alien_teleport", GetEntityCoords(Shared.Ped), 0.0, -2.0, 0.8, 1.0, 1, 0, 1, 1)
+    ExecuteCommand('e tryclothes3')
+    
+    Wait(1500)
+    UseParticleFxAssetNextCall("scr_rcbarry1")
+    local particle = StartNetworkedParticleFxNonLoopedAtCoord("scr_alien_teleport", GetEntityCoords(Shared.Ped), 0.0, -2.0, 0.8, 1.0, 1, 0, 1, 1)
+    Wait(1500)
+    UseParticleFxAssetNextCall("scr_rcbarry1")
+    local particle = StartNetworkedParticleFxNonLoopedAtCoord("scr_alien_disintegrate", GetEntityCoords(Shared.Ped), 0.0, -2.0, 0.8, 1.0, 1, 0, 1, 1)
+    Warp(vector3(207.91, -927.35, 30.69), 140.0)
+    ExecuteCommand('ec')
+    TriggerEvent('RemoveZone', 'Overlord')
+    Citizen.InvokeNative(0xF74B1FFA4A15FBEA, 0)
+    SetDeepOceanScaler(1.0)
+    RemoveEventHandler(handler)
+
+    for k,v in pairs(map) do
+        RemoveIpl(v)
+    end
+
+end)

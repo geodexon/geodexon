@@ -1,0 +1,591 @@
+#crafting {
+    position: fixed;
+    font-size: 1.5vh;
+    left: calc(50% - 32.5em);
+    width: 65em;
+    height: 50em;
+    top: 10em;
+    background-color: var(--main-bg);
+    border: 0.2em solid var(--main-lighter);
+    border-radius: 0.25em;
+    pointer-events: none;
+    opacity: 0.0;
+    transition: opacity 0.5s;
+    user-select: none;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#crafting_header {
+    position: relative;
+    width: 100%;
+    height: 5%;
+    border-bottom: 0.1em solid var(--main-lighter);
+    overflow: hidden;
+}
+
+#crafting_header p {
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 2.25vh;
+    bottom: 0.75em;
+    color: white;
+    text-align: center;
+}
+
+.crafting_item {
+    position: relative;
+    width: 100%;
+    height: 5em;
+}
+
+.crafting_options {
+    position: relative;
+    top: 0%;
+    width: 100%;
+    height: 2em;
+}
+
+.crafting_search {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 0.1vh solid var(--main-lighter);
+    font-size: 1.5vh;
+}
+
+.crafting_search_input {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: 1.5em;
+    margin-top: 1em;
+    background: var(--main-content);
+    outline: none;
+    border: 0em solid;
+    border-radius: 0.5em;
+    color: white;
+}
+
+.crafting_search_input::placeholder {
+    text-align: center;
+    color: lightgray;
+}
+
+.crafting_itemlist {
+    position: relative;
+    float: left;
+    width: 37.5%;
+    height: 91%;
+    box-sizing: border-box;
+    border-right: 0.1vh solid var(--main-lighter);
+    user-select: none;
+    overflow-y: scroll;
+}::-webkit-scrollbar {
+    display: none;
+}
+
+.crafting_item {
+    position: relative;
+    width: 100%;
+    height: 5em;
+}
+
+.crafting_item_image {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    top: 0.5em;
+    left: 2em;
+    border: 0.1em solid var(--main-lighter);
+    box-sizing: border-box;
+    background: var(--main-content);
+    border-radius: 0.25em;
+}
+
+.crafting_item_image img {
+    width: 100%;
+}
+
+.crafting_item p1 {
+    position: absolute;
+    color: lightgray;
+    font-size: 1.5em;
+    left: 5em;
+    bottom: 1.75em;
+}
+
+.crafting_item p2 {
+    position: absolute;
+    color: lightgray;
+    left: 7.5em;
+    bottom: 1.25em;
+}
+
+.crafting_item p3 {
+    position: absolute;
+    color: lightgray;
+    left: 7.5em;
+    bottom: 0.25em;
+}
+
+.crafting_item p99 {
+    position: absolute;
+    color: var(--main-lighter);
+    bottom: -35em;
+    width: 90%;
+    left: 5%;
+    pointer-events: none;
+}
+
+.crafting_item:hover {
+    background-color: var(--main-content);
+}
+
+.crafting_requirements {
+    position: relative;
+    float: left;
+    width: 37.5%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.crafting_requirements p1, .crafting_window p1 {
+    position: absolute;
+    color: lightgray;
+    font-size: 1.3em;
+    left: 5.25em;
+    bottom: 1.25em;
+}
+
+.crafting_item_header {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 3em;
+}
+
+.crafting_requirements h1 {
+    position: absolute;
+    color: gray;
+    font-size: 1em;
+    left: 11em;
+    z-index: 99;
+    top: 10em;
+    font-style: normal;
+}
+
+.crafting_requirements h2 {
+    position: absolute;
+    color: gray;
+    font-size: 1em;
+    left: 16em;
+    z-index: 99;
+    top: 10em;
+    font-style: normal;
+}
+
+.pAmounter {
+    position: absolute;
+    font-size: 2em;
+    top: 0.75em;
+    right: 10.75em;
+    width: 4em;
+}
+.crafting_item pAmount {
+    position: relative;
+    color: lightgray;
+    float: right;
+    text-align: right;
+}
+
+.NQ {
+    position: absolute;
+    width: 10%;
+    font-size: 1.5em;
+    height: 1.2em;
+    left: 7em;
+    bottom: 1.8em;
+}
+
+.HQ:hover, .NQ:hover{
+    background-color: var(--main-content);
+}
+
+.HQ {
+    position: absolute;
+    width: 10%;
+    font-size: 1.5em;
+    height: 1.2em;
+    left: 10.33333em;
+    bottom: 1.8em;
+}
+
+.NQ p {
+    position: relative;
+    color: lightgoldenrodyellow;
+    text-align: center;
+    bottom: 0.9em;
+}
+
+.HQ p {
+    position: relative;
+    color: lightgoldenrodyellow;
+    text-align: center;
+    bottom: 0.9em;
+}
+
+.MyNQ {
+    position: absolute;
+    width: 10%;
+    height: 0em;
+    left: 10.5em;
+    bottom: 3em;
+}
+
+.MyHQ {
+    position: absolute;
+    width: 10%;
+    height: 0em;
+    left: 15.5em;
+    bottom: 3em;
+    background-color: green;
+}
+
+.MyNQ p {
+    font-size: 1em;
+    color: gray;
+    text-align: center;
+}
+
+.MyHQ p {
+    font-size: 1em;
+    color: gray;
+    text-align: center;
+}
+
+.crafting_item hr {
+    position: absolute;
+    width: 40%;
+    left: 40%;
+    bottom: 1.8em;
+    border-color: gray;
+}
+
+.crafting_requirements .crafting_item:hover {
+    background-color: var(--min-bg);
+}
+
+.crafting_requirements p10 {
+    position: relative;
+    color: gray;
+    left: 2em;
+    width: 100%;
+}
+
+.crafting_requirements p11 {
+    position: absolute;
+    color: gray;
+    left: 10em;
+}
+
+.crafting_item_header .crafting_item:hover {
+    background-color: var(--main-bg);
+}
+
+.crafting_start {
+    position: absolute;
+    width: 40%;
+    right: 5%;
+    bottom: 5em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: var(--main-content);
+    font-size: 1.2em;
+    border: 0.05em solid var(--main-lighter);
+    border-radius: 0.5em;
+}
+
+.crafting_quick {
+    position: absolute;
+    width: 40%;
+    left: 5%;
+    bottom: 5em;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: var(--main-content);
+    font-size: 1.2em;
+    border: 0.05em solid var(--main-lighter);
+    border-radius: 0.5em;
+}
+
+.crafting_job {
+    position: relative;
+    margin-left: 0.1em;
+    height: 100%;
+}
+
+#repair {
+    position: fixed;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    opacity: 0.0;
+    pointer-events: none;
+    width: 30em;
+    height: auto;
+    right: 5em;
+    top: 10em;
+    background-color: var(--main-bg);
+    border: 0.1em solid var(--main-lighter);
+    transition: opacity 0.5s;
+}
+
+#repair #crafting_header {
+    height: 2.5em;
+}
+
+.repair_start {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: var(--main-content);
+    font-size: 1.5em;
+    border: 0.05em solid var(--main-lighter);
+    border-radius: 0.5em;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+.crafting_window {
+    position: fixed;
+    font-size: 1.5vh;
+    width: 35em;
+    height: 20em;
+    left: calc(50% - 17.5em);
+    top: calc(50% - 10em);
+    background-color: var(--main-bg);
+    border: 0.1em solid var(--main-lighter);
+    border-radius: 0.25em;
+    font-family: Arial, sans-serif;
+    color: lightgray;
+    transition: top 0.5s;
+}
+
+.crafting_window .crafting_item {
+    position: relative;
+    right: 4em;
+    scale: 0.8;
+    bottom: 0.3em;
+}
+
+.crafting_window hr {
+    position: relative;
+    border: 0.01em solid var(--main-content);
+    bottom: 1em;
+}
+
+.crafting_window .durability {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 15.2em;
+    bottom: 1.4em;
+}
+
+.crafting_window p2 {
+    position: absolute;
+    text-align: right;
+    color: lightgray;
+    font-size: 1.5em;
+    width: 22em;
+    top: 1em;
+}
+
+.crafting_window .progress {
+    position: relative;
+    width: 100%;
+    height: 7em;
+    bottom: 1em;
+}
+
+.crafting_window .quality {
+    position: relative;
+    width: 100%;
+    height: 7em;
+    bottom: 4em;
+}
+
+.progress p {
+    position: relative;
+    left: 1em;
+}
+
+.quality p {
+    position: relative;
+    left: 1em;
+}
+
+.progress_bar {
+    position: relative;
+    height: 1.5em;
+    width: 60%;
+    bottom: 0.5em;
+    left: 1em;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 0.1em solid var(--main-content);
+    border-radius: 5em;
+    overflow: hidden;
+}
+
+.progress_bar .progress {
+    position: relative;
+    width: 0%;
+    height: 150%;
+    background-color: rgb(0, 153, 255);
+    top: 0em;
+    transition: width 0.5s;
+}
+
+.progress p1, .quality p1 {
+    position: relative;
+    left: 18em;
+    bottom: 1.65em;
+}
+
+.crafting_window p3 {
+    position: absolute;
+    color: lightgoldenrodyellow;
+    left: 1em;
+    top: 14.5em;
+    margin-bottom: 10em;
+}
+
+.crafting_progress {
+    position: absolute;
+    outline: none;
+    border: 0.1em solid var(--main-lighter);
+    background-color: var(--main-content);
+    color: white;
+    font-size: 1em;
+    bottom: 0.5em;
+    right: 1em;
+    padding: 0.5em;
+    border-radius: 5em;
+}
+
+.crafting_quality {
+    position: absolute;
+    outline: none;
+    border: 0.1em solid var(--main-lighter);
+    background-color: var(--main-content);
+    color: white;
+    font-size: 1em;
+    bottom: 0.5em;
+    left: 1em;
+    padding: 0.5em;
+    border-radius: 5em;
+}
+
+.quick_craft {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    bottom: 1.5em;
+}
+
+#quick_make {
+    position: relative;
+    background: none;
+    background-color: var(--main-content);
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    width: 20%;
+    left: 5%;
+    top: 4em;
+    border: 0.05em solid var(--main-lighter);
+    border-radius: 5em;
+    color: white;
+    text-align: center;
+}::placeholder {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.quick_make_text {
+    position: relative;
+    font-size: 1.5em;
+    top: 4em;
+    left: 8%;
+}
+
+.quick_craft_go, .quick_craft_cancel {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+    border: 0.1em solid var(--main-lighter);
+    background: none;
+    background-color: var(--main-content);
+    border-radius: 5em;
+    font-size: 1.5em;
+    color: white;
+    padding: 0.25em;
+    width: 7em;
+    box-sizing: border-box;
+}
+
+#cancel {
+    left: 0.5em;
+}
+
+.crafting_search li {
+    font-family: Arial, sans-serif;
+    position: relative;
+    color: lightgoldenrodyellow;
+    width: 90%;
+    float: left;
+    font-size: 1.2em;
+    top: 0.5em;
+    left: 1em;
+}
+
+.crafting_search li:hover {
+    background-color: var(--main-content);
+}
+
+.crafting_search .isActive {
+    color: var(--main-lighter);
+}
+
+.Crafting2 {
+    position: fixed;
+    width: 94.5vh;
+    height: 75vh;
+    font-size: 1.5vh;
+
+    left: calc(50% - (94.5vh /2));
+    top: calc(50% - (75vh /2));
+    user-select: none;
+    transition: opacity 0.5s;
+    opacity: 0.0;
+    pointer-events: none;
+}
+
+.window .jobs {
+    position: relative;
+    width: 50%;
+    height: 3vh;
+    top: 1vh;
+    left: 2vh;
+}
+
+.window .img:hover {
+    background: gold;
+}

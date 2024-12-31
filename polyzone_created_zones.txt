@@ -1,0 +1,22 @@
+--Name: school | 2021-10-10T00:12:50Z
+BoxZone:Create(vector3(-1035.01, -2732.88, 20.17), 10.6, 3.0, {
+  name="school",
+  heading=240,
+  --debugPoly=true
+})
+
+--Name: 2 | 2021-11-01T13:28:10Z
+BoxZone:Create(vector3(229.1, -429.41, 48.08), 3.6, 0.6, {
+  name="2",
+  heading=248,
+  --debugPoly=true,
+  minZ=47.13,
+  maxZ=49.63
+})
+
+AddCircleZone(vector3(-252.26, 6334.28, 32.43), 1.68, {
+  name="Pillbox-Checkin",
+  useZ=true,
+  --debugPoly=true
+})
+

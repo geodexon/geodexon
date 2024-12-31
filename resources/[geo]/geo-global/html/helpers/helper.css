@@ -1,0 +1,128 @@
+:root {
+    --main-bg: rgb(53, 44, 53);
+    --main-lighter: rgb(146, 122, 146);
+    --main-content: rgb(77, 64, 77);
+    --main-light: rgb(121, 100, 121);
+    --main-bg-blue: rgb(44, 46, 53);
+    --main-lighter-blue: rgb(122, 131, 146);
+    --main-content-blue: rgb(64, 69, 77);
+    --main-light-blue: rgb(110, 119, 133) --main-bg-green: rgb(44, 53, 44);
+    --main-lighter-green: rgb(123, 146, 122);
+    --main-content-green: rgb(64, 77, 65);
+    --main-light-green: rgb(102, 124, 103);
+    --main-bg-yellow: rgb(52, 53, 44);
+    --main-lighter-yellow: rgb(146, 146, 122);
+    --main-content-yellow: rgb(77, 77, 64);
+    --main-light-yellow: rgb(121, 121, 102);
+    --main-bg-red: rgb(53, 44, 44);
+    --main-lighter-red: rgb(146, 122, 122);
+    --main-content-red: rgb(77, 64, 64);
+    --main-light-red: rgb(122, 102, 102);
+    --main-bg-default: rgb(53, 44, 53);
+    --main-lighter-default: rgb(146, 122, 146);
+    --main-content-default: rgb(77, 64, 77);
+    --main-light-default: rgb(121, 100, 121);
+
+    --windows: 1.0
+}
+
+#helper_confirm {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    width: 30%;
+    height: 15%;
+    left: 35%;
+    top: 42.5%;
+    background-color: var(--main-bg);
+    border-style: solid;
+    border-color: var(--main-content);
+    border-width: 1px;
+    z-index: 99999;
+}
+
+#helper_confirm_label {
+    color: white;
+    font-size: 1.5vh;
+    text-align: center;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+}
+
+#helper_confirm hr {
+    background-color: white;
+    height: 1px;
+    opacity: 0.2;
+    border: none;
+}
+
+#helper_confirm_yes {
+    position: relative;
+    float: right;
+    right: 10%;
+    width: 30%;
+    top: 20%;
+    height: 3vh;
+    background-color: var(--main-lighter);
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 15px;
+}
+
+#helper_confirm_no {
+    position: relative;
+    float: left;
+    left: 10%;
+    width: 30%;
+    top: 20%;
+    height: 3vh;
+    background-color: rgb(221, 118, 118);
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 15px;
+}
+
+.tooltip {
+    background-color: var(--main-bg);
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    color: white;
+    box-shadow: none;
+    margin-top: 20%;
+    font-size: 1vh;
+}
+
+.tooltip2 {
+    background-color: var(--main-bg);
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    color: white;
+    box-shadow: none;
+    margin-bottom: 20%;
+    font-size: 1vh;
+}
+
+#helper_load {
+    position: fixed;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 40%;
+    background-color: var(--main-bg);
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    display: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 999;
+}
+
+#helper_loading {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    left: calc(50% - 2.5vw);
+    top: calc(50% - 2.5vw)
+}

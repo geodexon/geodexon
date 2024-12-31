@@ -1,0 +1,102 @@
+#radio {
+    position: fixed;
+    left: 0%;
+    bottom: 1.7%;
+    width: 10%;
+    height: 5%;
+    transform: rotate(180deg) scaleX(-1);
+}
+
+#radio_int {
+    display: none;
+}
+
+#radio_icon {
+    position: relative;
+    display: block;
+    right: 0%;
+    width: calc(0.5vh * (16/9));
+    height: 5vh;
+    margin: 2%;
+    background-color: var(--main-bg);
+    border: 0.1vh solid var(--main-lighter);
+}
+
+#radio_setter {
+    position: relative;
+    width: 100%;
+    background-color: var(--main-content);
+    height: 20%;
+    transition: height 0.5s;
+}
+
+#radio_img {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    width: 9%;
+    height: 55%;
+}
+
+#radio_channel {
+    position: absolute;
+    width: 5%;
+    height: 7%;
+    right: 2%;
+    bottom: 18%;
+}
+
+#radio_channel_text {
+    position: relative;
+    color: black;
+    text-align: center;
+    font-size: 1.75vh;
+    left: 10%;
+    top: 5%;
+    width: 80%;
+    height: 80%;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0 ,0.0);
+    resize: none;
+    font-family: 'Orbitron';
+}
+
+#radio_channel_text::-webkit-inner-spin-button {
+    display: none;
+}
+
+#radio_on {
+    position: absolute;
+    width: 1.5%;
+    height: 27.5%;
+    right: 6%;
+    bottom: 27.5%;
+}
+
+#radio_volume {
+    position: absolute;
+    width: 1.5%;
+    height: 5%;
+    right: 4%;
+    bottom: 27.5%;
+}
+
+#radio_clicks {
+    position: absolute;
+    width: 1.5%;
+    height: 5%;
+    right: 1.75%;
+    bottom: 27.5%;
+}
+
+#radio_info {
+    position: absolute;
+    font-size: 1.5vh;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+}

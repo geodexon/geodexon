@@ -1,0 +1,69 @@
+local candyCanes = {
+    vector3(440.25, -980.24, 31.89),
+    vector3(162.13, -1038.91, 29.32),
+    vector3(213.94, -808.75, 33.92),
+    vector3(-175.29, -915.85, 29.26),
+    vector3(-249.34, -1002.18, 32.36),
+    vector3(-349.84, -770.28, 34.88),
+    vector3(-22.22, -475.55, 41.92),
+    vector3(-471.43, -276.08, 35.78),
+    vector3(314.87, -278.6, 54.16),
+    vector3(324.88, -211.55, 54.09),
+    vector3(232.09, -421.38, 48.07),
+    vector3(927.74, 44.82, 81.12),
+    vector3(912.62, -171.31, 74.27),
+    vector3(761.42, -642.49, 28.92),
+    vector3(571.59, -995.33, 10.51),
+    vector3(1024.4, -226.04, 43.41),
+    vector3(309.04, -592.18, 43.28),
+    vector3(-712.95, -913.24, 19.21),
+    vector3(125.34, -1942.75, 20.7),
+    vector3(773.49, -2087.24, 30.29),
+    vector3(784.44, -1393.21, 27.01),
+    vector3(408.82, -1624.32, 29.29),
+    vector3(181.24, -915.31, 31.64),
+    vector3(20.11, -1105.17, 30.8),
+    vector3(-199.45, -1381.08, 31.25),
+    vector3(-223.64, -1329.47, 30.89),
+    vector3(-32.21, -1111.93, 26.42),
+    vector3(-284.64, -616.42, 33.37),
+    vector3(-162.65, -303.12, 39.73),
+    vector3(-83.36, 80.77, 71.52),
+    vector3(862.9, 528.74, 125.91),
+    vector3(-1736.39, 159.16, 64.49),
+    vector3(-1325.73, -926.02, 11.2),
+    vector3(274.09, -2046.41, 18.75),
+    vector3(271.96, -1857.29, 18.61)
+}
+
+Task.Register('GetCandyCanes', function(source)
+    return candyCanes
+end)
+
+--[[ Task.Register('FoundCandyCane', function(source, id)
+    local pos = GetEntityCoords(GetPlayerPed(source))
+    if Vdist3(pos, candyCanes[id]) <= 3.0 then
+        local char = GetCharacter(source)
+        if char.data.christmas2021 == nil then char.data.christmas2021 = {} end
+        char.data.christmas2021[id] = 1
+        SetData(source, 'christmas2021', char.data.christmas2021)
+        local count = 0
+        for k,v in pairs(char.data.christmas2021) do
+            count = count + 1
+        end
+
+        TriggerClientEvent('Shared.Notif', source, 'You have found '..count..' / '..#candyCanes.. ' candy canes')
+    end
+end) ]]
+
+Task.Register('GetMyCandyCanes', function(source, id)
+    local char = GetCharacter(source)
+    if char.data.christmas2021 == nil then char.data.christmas2021 = {} end
+    local count = 0
+    for k,v in pairs(char.data.christmas2021) do
+        count = count + 1
+    end
+    TriggerClientEvent('Shared.Notif', source, 'You have found '..count..' / '..#candyCanes.. ' candy canes')
+
+    return char.data.christmas2021
+end)

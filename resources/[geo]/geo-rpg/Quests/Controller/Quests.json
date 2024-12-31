@@ -1,0 +1,451 @@
+[
+    {
+        "quest_id": "tutorial",
+        "location": {
+            "x": -314.51,
+            "y": -836.19,
+            "z": 31.62,
+            "w": 172.65
+        },
+        "ped": "u_m_y_party_01",
+        "name": "Tutorial",
+        "repeatable": false,
+        "rewards": [
+            "dollar", 5000
+        ],
+
+        "dialogue": [
+            ["Welcome to GeoDexon GTA V RP Server. Follow through with this guide for the essential info you need. Go to the blip on your map, if you relog use \"/quests\" and select your active quest to get a new waypoint", 10000]
+        ],
+
+        "stages": [
+            {
+                "task": "goto",
+                "location": {
+                    "x": -259.46374511719, 
+                    "y": -842.34722900391, 
+                    "z": 31.419799804688
+                },
+                "dialogue": [
+                    ["This is GoPostal, one of many jobs, Use the Selector to interact [Default Left Alt] then continue on to your next location", 10000]
+                ]
+            },
+            {
+                "task": "goto",
+                "location": {
+                    "x": 149.90769958496,
+                    "y": -1040.4263916016, 
+                    "z": 29.364135742188
+                },
+                "dialogue": [
+                    ["Welcome to the bank, use F1 to interact with it, most things you encounter will be through this interface", 10000]
+                ]
+            },
+            {
+                "task": "goto",
+                "location": {
+                    "x": 302.41317749023, 
+                    "y": -904.82635498047, 
+                    "z": 29.279907226563
+                },
+                "dialogue": [
+                    ["Make your choice, civillian or criminal, you decide....", 10000]
+                ]
+            }
+        ]
+    },
+
+    {
+        "quest_id": "tutorial.civ",
+        "location": {
+            "x": 308.71649169922, 
+            "y": -903.94287109375, 
+            "z": 29.279907226563,
+            "w": 97.3
+        },
+        "ped": "a_m_m_business_01",
+        "name": "The Wonderful Legal Life",
+        "dialogue": [
+            ["Welcome to the legal life my wonderful friend", 10000]
+        ],
+
+        "needflag": "noCrim",
+        "requires": "tutorial",
+        "repeatable": false,
+        "stages": [
+            {
+                "task": "interact",
+                "ped": "a_m_m_business_01",
+                "text": "Let's Go",
+                "location":  {
+                    "x": 299.68353271484, 
+                    "y": -902.91430664063, 
+                    "z": 29.279907226563,
+                    "w": 253.0
+                },
+
+                "dialogue": [
+                    ["What? This information is all on your GPS already, figure it out yourself", 10000]
+                ]
+            }
+        ]
+    },
+
+    {
+        "quest_id": "tutorial.crim",
+        "location": {
+            "x": 308.9010925293, 
+            "y": -908.95385742188, 
+            "z": 29.279907226563,
+            "w": 63.0
+        },
+        "ped": "g_m_y_ballaorig_01",
+        "name": "The Wonderful Criminal Life",
+        "dialogue": [
+            ["Try not to get shot dumbass, go look at this shit", 10000]
+        ],
+
+        "repeatable": false,
+        "needflag": "noCiv",
+        "requires": "tutorial",
+        "stages": [
+            {
+                "task": "goto",
+                "location": {
+                    "x": 454.50988769531,
+                    "y": -1280.1362304688,
+                    "z": 29.532592773438
+                },
+
+                "dialogue": [
+                    ["Looking to be some muscle and rough people up, she'll help you out. (Use the Selector to interact [Default Left Alt])", 10000]
+                ]
+            },
+            {
+                "task": "goto",
+                "location": {
+                    "x": 748.1142578125, 
+                    "y": -1695.6263427734, 
+                    "z": 29.279907226563
+                },
+
+                "dialogue": [
+                    ["Want to loot some warehouses? you're in good hands here.", 10000]
+                ]
+            },
+            {
+                "task": "goto",
+                "location": {
+                    "x": -73.094497680664, 
+                    "y": -1833.5867919922, 
+                    "z": 26.9208984375
+                },
+
+                "dialogue": [
+                    ["Some hardcore shit here, streets are cold.", 10000]
+                ]
+            },
+            {
+                "task": "goto",
+                "location": {
+                    "x": 1046.5977783203, 
+                    "y": 2652.6594238281, 
+                    "z": 39.541381835938
+                },
+
+                "dialogue": [
+                    ["Hey I have some frozen goods that I need to move... please help me?", 10000]
+                ]
+            }
+        ]
+    },
+
+    {
+        "quest_id": "comrob_propanetorch",
+        "name": "Arson in the Mist",
+        "dialogue": [
+            ["Bring this to the destination for the next job", 10000]
+        ],
+
+        "item" : "propane_torch",
+        "repeatable": true,
+        "stages": [
+            {
+                "task": "goto",
+                "location": {
+                    "x": 1237.85,
+                    "y": 1863.94,
+                    "z": 78.96,
+                    "w": 0.0
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "burner_onstart",
+        "name": "False Calls For All",
+        "dialogue": [
+            ["Bring this to the destination for the next job", 10000]
+        ],
+
+        "item" : "burner_phone",
+        "repeatable": true,
+        "stages": [
+            {
+                "task": "goto",
+                "location": {
+                    "x": -1413.57,
+                    "y": -635.39,
+                    "z": 28.67,
+                    "w": 0.0
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "police.range",
+        "name": "Police Training: Range Ralph",
+        "dialogue": [
+            ["Head to the range and hit your minimum target", 10000]
+        ],
+
+        "ped": "s_m_y_cop_01",
+        "location": {
+            "x": 13.32,
+            "y": -1101.35,
+            "z": 29.8,
+            "w": 152.96
+        },
+
+        "rewards": [
+            "trophy_bronze", 1
+        ],
+
+        "needflag": "isPolice",
+        "repeatable": false,
+        "stages": [
+            {
+                "task": "interact",
+                "taskname" : "police_range_target",
+                "taskdisplay" : "Range Points",
+                "ped": "s_m_y_cop_01",
+                "text": "Submit Range Chart",
+                "taskcount": 105,
+                "location": {
+                    "x": 13.32,
+                    "y": -1101.35,
+                    "z": 29.8,
+                    "w": 152.96
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "police.arrests1",
+        "name": "Arrest-Andy",
+        "dialogue": [
+            ["Get 5 Arrests and come back to me", 10000]
+        ],
+
+        "ped": "s_m_y_cop_01",
+        "location": {
+            "x": 459.77,
+            "y": -987.59,
+            "z": 24.91,
+            "w": 240.0
+        },
+
+        "rewards": [
+            "trophy_bronze", 1
+        ],
+
+        "needflag": "isPolice",
+        "repeatable": false,
+        "stages": [
+            {
+                "task": "interact",
+                "taskname" : "police_arrest_5",
+                "taskdisplay" : "Arrests",
+                "ped": "s_m_y_cop_01",
+                "text": "Submit Arrest Record",
+                "taskcount": 5,
+                "location": {
+                    "x": 459.77,
+                    "y": -987.59,
+                    "z": 24.91,
+                    "w": 240.0
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "police.ticket1",
+        "name": "Ticket-Timothy",
+        "expired": true,
+        "dialogue": [
+            ["Get 5 Tickets and come back to me", 10000]
+        ],
+
+        "ped": "s_m_y_cop_01",
+        "location": {
+            "x": 436.64,
+            "y": -976.71,
+            "z": 30.72,
+            "w": 32.23
+        },
+
+        "rewards": [
+            "trophy_bronze", 1
+        ],
+
+        "needflag": "isPolice",
+        "repeatable": false,
+        "stages": [
+            {
+                "task": "interact",
+                "taskname" : "police_tickets_5",
+                "taskdisplay" : "Tickets",
+                "ped": "s_m_y_cop_01",
+                "text": "Submit Ticket Record",
+                "taskcount": 5,
+                "location": {
+                    "x": 436.64,
+                    "y": -976.71,
+                    "z": 30.72,
+                    "w": 32.23
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "christmas2020",
+        "expired" : true,
+        "location": {
+            "x": -116.99, 
+            "y": -886.7, 
+            "z": 29.25,
+            "w": 248.50
+        },
+        "ped": "a_m_m_tranvest_01",
+        "name": "Christmas Horniness",
+        "dialogue": [
+            ["Snoot Snoot, Collect Money, Snoot Snoot (Collect $100,000 by any means)", 10000]
+        ],
+
+        "rewards": [
+            "horn_christmas", 1
+        ],
+
+        "repeatable": false,
+        "requires": "tutorial",
+        "stages": [
+            {
+                "task": "interact",
+                "itemcount": 100000,
+                "item": "dollar",
+                "ped": "a_m_m_tranvest_01",
+                "text": "Check Status",
+                "location": {
+                    "x": -116.99, 
+                    "y": -886.7, 
+                    "z": 29.25,
+                    "w": 248.50
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "jobs.vehicletheft",
+        "location": {
+            "x": 301.76, 
+            "y": -907.96, 
+            "z": 29.29,
+            "w": 328.0
+        },
+        "ped": "g_m_y_ballaorig_01",
+        "name": "Vehicle Theftacular",
+        "dialogue": [
+            ["I like to steal cars :)", 10000]
+        ],
+
+        "repeatable": false,
+        "requires": "tutorial.crim",
+        "stages": [
+            {
+                "task": "goto",
+                "location": {
+                    "x": -26.08,
+                    "y": -640.86,
+                    "z": 35.86
+                }
+            }
+        ]
+    },
+
+    {
+        "quest_id": "chop.begin",
+        "name": "A New Type of Theft",
+        "repeatable": false,
+        "dialogue": [
+            ["If you want to try something a little bit more, interesting, take a ride over here.", 10000]
+        ],
+
+        "stages": [
+            {
+                "task": "goto",
+                "location": {
+                    "x": -109.58, 
+                    "y": -2705.77, 
+                    "z": 6.01
+                },
+                "dialogue": [
+                    ["Come here at night for some more work, of a different variety", 10000]
+                ]
+            }
+        ]
+    },
+
+    {
+        "quest_id": "police.medical",
+        "name": "Medical Malpractice",
+        "expired": false,
+        "dialogue": [
+            ["Help the doctor in the surgery", 10000]
+        ],
+
+        "ped": "s_m_m_paramedic_01",
+        "location": {
+            "x": 297.01,
+            "y": -600.45,
+            "z": 43.3,
+            "w": 154.18
+        },
+
+        "needflag": "isPolice",
+        "repeatable": false,
+        "stages": [
+            {
+                "task": "interact",
+                "ped": "u_m_y_zombie_01",
+                "text": "*Stab With Needle*",
+                "location":  {
+                    "x": 321.7, 
+                    "y": -564.91, 
+                    "z": 43.28,
+                    "w": 155.45
+                },
+
+                "dialogue": [
+                    ["Congrats, Now you're a true Los Santos Medic", 10000],
+                    ["You have gained access to /revive", 10000]
+                ]
+            }
+        ]
+    }
+]

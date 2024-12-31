@@ -1,0 +1,279 @@
+#clothing {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    right: 0%;
+    width: 25%;
+    height: 100%;
+    background-color: var(--main-content);
+    display: none;
+    opacity: 0.0;
+    user-select: none;
+    border-left: 0.1vw solid var(--main-lighter);
+}
+
+#clothing_header {
+    position: fixed;
+    width: 100%;
+    height: 5%;
+    z-index: 0;
+    border-bottom: 0.1vh solid var(--main-lighter);
+}
+
+#clothing_container {
+    position: absolute;
+    width: 100%;
+    height: 94.9%;
+    bottom: 0%;
+    background-color: var(--main-bg);
+    max-height: 100%;
+    overflow-y: scroll;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+#clothing_container::-webkit-scrollbar {
+    display: none;
+}
+
+#clothing_slider {
+    position: relative;
+    margin-top: 3%;
+    width: 90%;
+    left: 5%;
+    background-color: var(--main-content);
+    overflow: hidden;
+    padding-left: 2.5%;
+    border: 0.1vw solid var(--main-lighter);
+    border-radius: 1vw;
+}
+
+#clothing_slider_bar {
+    position: relative;
+    margin-top: 5%;
+    width: 60%;
+}
+
+input[type=range] {
+    accent-color: var(--main-lighter);
+}
+
+#clothing_name {
+    position: absolute;
+    font-size: 1.5vh;
+    top: 5%;
+    right: 1.5vw;
+    width: 28%;
+    color: white;
+    word-wrap: break-word;
+    text-align: right;
+}
+
+#clothing_drawable {
+    left: 2%;
+    font-size: 1.5vh;
+    color: white;
+}
+
+#clothing_drawable_input {
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 55%;
+    left: 22.5%;
+    width: 15%;
+    height: 30%;
+    color: white;
+    background-color: var(--main-lighter);
+    text-align: center;
+    font-size: 1.5vh;
+    border: 0.1vw solid var(--main-lighter);
+    border-radius: 2vw;
+}
+
+#clothing_texture {
+    position: absolute;
+    top: 42.5%;
+    left: 62.5%;
+    font-size: 1.5vh;
+    color: white;
+}
+
+#clothing_texture_input {
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 55%;
+    left: 80%;
+    width: 15%;
+    height: 30%;
+    color: white;
+    background-color: var(--main-lighter);
+    text-align: center;
+    font-size: 1.5vh;
+    border: 0.1vw solid var(--main-lighter);
+    border-radius: 2vw;
+}
+
+#clothing_drawable_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#clothing_texture_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#clothing_shirt {
+    position: relative;
+    top: 0.5%;
+    left: 2%;
+    width: 8%;
+    height: 4%;
+    z-index: 1;
+}
+
+#clothing_helmet {
+    position: relative;
+    top: 0.5%;
+    left: 4%;
+    width: 8%;
+    height: 4%;
+    z-index: 1;
+}
+
+#clothing_face {
+    position: relative;
+    top: 0.5%;
+    left: 4%;
+    width: 8%;
+    height: 4%;
+    z-index: 1;
+}
+
+#clothing_blend {
+    position: relative;
+    top: 0.5%;
+    left: 4%;
+    width: 8%;
+    height: 4%;
+    z-index: 1;
+}
+
+#clothing_overlay {
+    position: relative;
+    top: 0.5%;
+    left: 4%;
+    width: 8%;
+    height: 4%;
+    z-index: 1;
+}
+
+#clothing_outfits {
+    position: relative;
+    top: 0.5%;
+    left: 4%;
+    width: 8%;
+    height: 4%;
+    z-index: 1;
+}
+
+.clothing_outfit {
+    position: relative;
+    width: 90%;
+    left: 2%;
+    height: 10%;
+    background-color: var(--main-content);
+    margin: 3%;
+}
+
+#clothing_outfit_name {
+    position: relative;
+    font-size: 1.75vh;
+    color: white;
+    top: 10%;
+    margin: 5%;
+}
+
+#clothing_outfit_load {
+    position: absolute;
+    left: 2%;
+    bottom: 5%;
+    width: 40%;
+    height: 40%;
+    background-color: rgb(23, 121, 14);
+    color: white;
+    border: none;
+    outline: none;
+}
+
+#clothing_outfit_save {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    width: 40%;
+    height: 40%;
+    background-color: rgb(138, 23, 38);
+    color: white;
+    border: none;
+    outline: none;
+}
+
+#clothing_headcamera {
+    position: fixed;
+    right: 27.5%;
+    top: 2%;
+    width: 3vw;
+    height: 3vw;
+    background-color: var(--main-bg);
+    border-style: solid;
+    border-color:var(--main-liguhter);
+}
+
+#clothing_camerapic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tooltip {
+    background-color: var(--main-bg);
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    color: white;
+    box-shadow: none;
+    margin-bottom: 20%;
+    font-size: 1vh;
+}
+
+#outfit_new {
+    position: relative;
+    outline: none;
+    border: none;
+    background-color: var(--main-lighter);
+    color: white;
+    width: 40%;
+    height: 50%;
+    left: 30%;
+    top: 25%;
+}
+
+.outfit_delete {
+    position: absolute;
+    width: 1vw;
+    height: 1vw;
+    right: 0.1vw;
+    top: 0.1vw;
+}
+
+#outfit_bag {
+    position: relative;
+    outline: none;
+    border: none;
+    background-color: var(--main-lighter);
+    color: white;
+    width: 40%;
+    height: 50%;
+    left: 30%;
+    top: 25%;
+}

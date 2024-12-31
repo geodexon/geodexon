@@ -1,0 +1,1252 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#mdt {
+    position: fixed;
+    width: 95%;
+    height: 95%;
+    left: 2.5%;
+    top: 2.5%;
+    background-color: var(--main-bg);
+    border: solid;
+    display: none;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    z-index: 10;
+}
+
+#mdt_header {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    background-color: var(--main-content);
+    border-bottom: solid;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+}
+
+#sidebar {
+    position: relative;
+    width: 15%;
+    height: 85%;
+    border-right: solid;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    float: left;
+}
+
+#mdt_content {
+    float: right;
+    position: relative;
+    width: calc(85% - 1px);
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.mdt_page {
+    position: relative;
+    width: 100%;
+    height: 7%;
+    border: none;
+    outline: none;
+    font-size: 1.5vh;
+    color: white;
+    background-color: var(--main-bg);
+    border-bottom: solid 0.1em var(--main-content);
+}
+
+.mdt_page:hover {
+    background-color: var(--main-content);
+}
+
+#profiles {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+.input_container { 
+    position:relative;
+    padding:0;
+    margin:0;
+    background: none;
+    outline: none;
+}
+.input { 
+    position: relative;
+    height:20px;
+    margin:0;
+    padding-left:30px;
+    padding-bottom:5px;
+    width: 80%;
+    left: 10%;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: 1px;
+    color: white;
+    font-size: 1.5vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow-wrap: break-word;
+    height: auto;
+}
+
+.input2 { 
+    position: relative;
+    height:2vh;
+    margin:0;
+    padding-bottom:5px;
+    width: 80%;
+    left: 10%;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: 1px;
+    color: white;
+    font-size: 1.5vh;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    overflow-wrap: break-word;
+    height: auto;
+}
+
+#input_img {
+    position: absolute;
+    bottom:8px;
+    left:calc(10%);
+    width:1vw;
+    height:1vw;
+    top: 30%;
+}
+
+.profile_option {
+    width: 90%;
+    height: 7%;
+    margin-left: 5%;
+    background-color: var(--main-content);
+    margin-top: 0.2em;
+    color: white;
+    font-size: 1.5vh;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 0.1em solid var(--main-lighter);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profiles_searcher {
+    margin-bottom: 2.5%;
+}
+
+#profile_active {
+    float: right;
+    width: 80%;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#profile_new {
+    position: absolute;
+    left: 18.5%;
+    top: 2%;
+    width: 1vw;
+    height: 1vw;
+}
+
+#profile_image {
+    position: relative;
+    left: 1em;
+    top: 1em;
+    width: auto;
+    height: 10em;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    max-width: 14em;
+    max-height: 9vw;
+}
+
+#profile_fullname {
+    position: absolute;
+    width: 50%;
+    margin-left: 14em;
+    top: 0em;
+}
+
+#profile_fulldob {
+    position: absolute;
+    width: 50%;
+    margin-left: 14em;
+    top: 3em;
+}
+
+#profile_fullimage {
+    position: absolute;
+    width: 50%;
+    margin-left: 14em;
+    top: 9em;
+}
+
+#profile_fullcid {
+    position: absolute;
+    width: 50%;
+    margin-left: 14em;
+    top: 6em;
+}
+
+#profile_notes {
+    position: relative;
+    width: 96%;
+    height: 75%;
+    margin-top: 5%;
+    left: 2%;
+    background-color: var(--main-content);
+    border: none;
+    outline: none;
+    color: white;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profile_notebody {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    left: 2.5%;
+    top: 2.5%;
+    border: none;
+    outline: none;
+}
+
+#profile_save {
+    position: absolute;
+    left: 57.5%;
+    top: 2%;
+    width: 1vw;
+    height: 1vw;
+}
+
+#profile_notebody:empty:not(:focus):before {
+    content: attr(data-placeholder)
+}
+
+#load {
+    position: fixed;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 40%;
+    background-color: var(--main-bg);
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    display: none;
+    z-index: 99999999;
+}
+
+#loading {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    left: calc(50% - 2.5vw);
+    top: calc(50% - 2.5vw)
+}
+
+#profile_licenses {
+    position: relative;
+    width: 97%;
+    right: 1%;
+    margin-top: 2%;
+    padding-top: 1%;
+    height: auto;
+    top: 0%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profile_licensesheader {
+    color: white;
+    margin-top: 5%;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.profile_licensebutton {
+    position: relative;
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5vh;
+    left: 2%;
+    color: white;
+}
+
+.profile_licensebutton[has="true"] {
+    background-color: var(--main-lighter);
+}
+
+.profile_licensebutton[has="false"] {
+    background-color: rgb(221, 118, 118);    
+}
+
+#profile_Vehicles {
+    position: relative;
+    width: 97%;
+    right: 1%;
+    margin-top: 2%;
+    padding-top: 1%;
+    height: auto;
+    top: 0%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profile_Vehiclesheader {
+    color: white;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.profile_vehiclebutton {
+    position: relative;
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5vh;
+    left: 2%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:var(--main-lighter);
+    color: white;
+}
+
+#profile_Charges {
+    position: relative;
+    width: 97%;
+    right: 1%;
+    margin-top: 2%;
+    padding-top: 1%;
+    height: auto;
+    top: 0%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profile_Chargesheader {
+    color: white;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.profile_chargesbutton {
+    position: relative;
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5vh;
+    left: 2%;
+    background-color:var(--main-lighter);
+    color: white;
+}
+
+#profile_Warrants {
+    position: relative;
+    width: 97%;
+    right: 1%;
+    margin-top: 2%;
+    padding-top: 1%;
+    height: auto;
+    top: 0%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profile_Warrantsheader {
+    color: white;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.profile_warrantsbutton {
+    position: relative;
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5vh;
+    left: 2%;
+    background-color:var(--main-lighter);
+}
+
+#profile_Properties {
+    position: relative;
+    width: 97%;
+    right: 1%;
+    margin-top: 2%;
+    padding-top: 1%;
+    height: auto;
+    top: 0%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#profile_Propertiesheader {
+    color: white;
+    font-size: 1.75vh;
+    text-align: center;
+}
+
+.profile_Propertiesbutton {
+    position: relative;
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5vh;
+    left: 2%;
+    background-color:var(--main-lighter);
+}
+
+#profile_optionscontainer {
+    position: absolute;
+    width: 98%;
+    height: 100%;
+    top: 0%;
+    right: 0%;
+}
+
+#testing {
+    width: 100%;
+    height: 100%;
+}
+
+#reports {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 100%;
+    overflow-y: scroll;
+}
+#reports_searcher {
+    margin-bottom: 2.5%;
+}
+
+#reports_title {
+    position: relative;
+    width: 100%;
+    bottom: 1.5vh;
+}
+
+#input_img2 {
+    position: absolute;
+    bottom:8px;
+    left:calc(10%);
+    width:1vw;
+    height:1vw;
+    top: 37.5%;
+}
+
+#report_body {
+    position: relative;
+    width: 95%;
+    left: 5%;
+    height: 88.5%;
+    background-color: var(--main-content);
+    border: none;
+    outline: none;
+    bottom: 1.75vh;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#report_body_content {
+    position: relative;
+    font-family: Arial, sans-serif;
+    width: 95%;
+    height: 95%;
+    left: 2.5%;
+    top: 2.5%;
+    color: white;
+    background-color: var(--main-content);
+    font-size: 1.5vh;
+    border: none;
+    outline: none;
+    overflow-y: scroll;
+    padding-right: 0.35em;
+}
+
+#report_body_content::-webkit-scrollbar{
+    position: absolute;
+    display: inline-block;
+    margin-left: 8em;
+    width: 0.1em;
+    background-color: var(--main-lighter);
+}
+
+
+#report_body_content::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+}
+
+#report_info {
+    position: relative;
+    width: 85%;
+    left: 10%;
+    height: 95%;
+}
+
+#report_data {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: 0.6em;
+    overflow-y: scroll;
+}
+
+#report_data hr {
+    border-color: gray;
+}
+
+#report_number {
+    position: relative;
+    top: 1%;
+    color: white;
+}
+
+#report_save {
+    position: absolute;
+    width: 1vw;
+    height: 1vw;
+    right: 4%;
+    top: 1.25em;
+}
+
+#report_lock {
+    position: absolute;
+    width: 1vw;
+    height: 1vw;
+    right: 12%;
+    top: 1.25em;
+}
+
+#report_evidenceopen {
+    position: absolute;
+    width: 1vw;
+    height: 1vw;
+    right: 20%;
+    top: 1.25em;
+}
+
+.report_option {
+    margin-top: 0.2em;
+    width: 90%;
+    height: 7%;
+    margin-left: 5%;
+    top: 0.5%;
+    background-color: var(--main-content);
+    color: white;
+    font-size: 1.5vh;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    border: 0.1em solid var(--main-lighter);
+    box-sizing: border-box;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#report_option_title {
+    position: relative;
+    text-align: center;
+    margin-top: 3%;
+    overflow-x: hidden;
+}
+
+#report_option_id {
+    position: absolute;
+    bottom: -20%;
+    right: 3%;
+    color: rgb(219, 219, 219);
+    font-size: 1.25vh;
+}
+
+#report_persons {
+    position: relative;
+    float: right;
+    right: 0%;
+    height: 5%;
+    width: 100%;
+}
+
+#report_add {
+    position: absolute;
+    bottom: 12%;
+    float: left;
+    font-size: 1.5vh;
+    color: white;
+}
+
+#report_addperson {
+    position: relative;
+    width: 1vw;
+    height: 1vw;
+    right: 4%;
+    float: right;
+}
+
+#person_search {
+    position: absolute;
+    width: 40%;
+    height: auto;
+    left: 30%;
+    top: 35%;
+    max-height: 60%;
+    background-color: var(--main-bg);
+    border: solid;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    overflow-y: scroll;
+}
+
+.person_search_container {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: 5.45vw;
+    background-color: var(--main-content);
+    margin-bottom: 2%;
+}
+
+#person_search_image {
+    position: relative;
+    float: left;
+    width: auto;
+    max-width: 9.6vw;
+    height: 5.4vw;
+}
+
+#person_name {
+    position: absolute;
+    font-size: 1.5vh;
+    left: 40%;
+    top: 10%;
+    color: white;
+}
+
+#person_cid {
+    position: absolute;
+    font-size: 1.5vh;
+    left: 40%;
+    bottom: 10%;
+    color: white;
+}
+
+.person_add {
+    position: relative;
+    float: right;
+    width: 20%;
+    top: 30%;
+    height: 40%;
+    right: 2%;
+    background-color: var(--main-lighter);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.report_person_cont {
+    position: relative;
+    top: 0%;
+    width: 100%;
+    height: auto;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#report_person_name {
+    position: relative;
+    color: white;
+    font-size: 1.5vh;
+    padding-top: 2vh;
+    padding-left: 2vh;
+}
+
+.report_person_remove {
+    position: absolute;
+    float: right;
+    right: 2%;
+    width: 1vw;
+    height: 1vw;
+    top: 1.5em;
+}
+
+.report_person_op {
+    position: absolute;
+    float: right;
+    right: 8%;
+    width: 1vw;
+    height: 1vw;
+    top: 1.5em;
+}
+
+.report_addcharge {
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5vh;
+    background-color: var(--main-lighter);
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.charge_container {
+    position: relative;
+    float: left;
+    width: 15.2%;
+    height: 12.16%;
+    background-color: var(--main-content);
+    margin-left: 0.9375%;
+    margin-top: 2%;
+    border: solid;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    overflow: hidden;
+}
+
+.charge_container[type = "Felony"] {
+    background-color: rgb(136, 108, 30);
+}
+
+.charge_container[type = "Traffic"] {
+    background-color: rgb(32, 90, 27);
+}
+
+#charge_name {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    height: auto;
+    text-align: center;
+    color: white;
+}
+
+#charge_time {
+    position: absolute;
+    text-align: left;
+    left: 0.5em;
+    bottom: -1em;
+    color: white;
+}
+#charge_fine {
+    position: absolute;
+    text-align: right;
+    right: 0.5em;
+    bottom: -1em;
+    color: white;
+}
+
+.charge_container hr {
+    position: absolute;
+    bottom: 1.25em;
+    width: 100%;
+    border-color: lightgray;
+    border-width: 0.1em;
+}
+
+#charge_under {
+    position: absolute;
+    bottom: 0%;
+    height: 10%;
+    width: 100%;
+    background-color: var(--main-content);
+}
+
+#imghider {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.377);
+    display: none;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.charge_info {
+    position: relative;
+    color: white;
+    padding-bottom: 0.25vh;
+    margin-left: 2%;
+    font-size: 1.6vh;
+    white-space:nowrap;
+}
+
+.report_iswarrant {
+    position: relative;
+    margin-top: 1vh;
+    width: 1.75vh;
+    height: 1.75vh;
+    background-color: green;
+    margin-left: 2%;
+}
+
+.report_warrantlabel {
+    position: relative;
+    float: right;
+    font-size: 1.5vh;
+    margin-right: 80%;
+    bottom: 0.4vh;
+    color: white;
+}
+
+#mdt_image {
+    position: relative;
+    width: 20vw;
+    height: 8vw;
+}
+
+#settings_search {
+    width: 20%;
+}
+
+#dispatch {
+    position: fixed;
+    right: -1em;
+    width: 20%;
+    height: 40%;
+    top: 1em;
+    opacity: 1.0;
+    pointer-events: none;
+    scale: 0.9 0.9;
+    z-index: 9;
+}
+
+.dispatch_call {
+    position: relative;
+    width: 98%;
+    right: 2%;
+    height: auto;
+    background-color: var(--main-bg);
+    margin-top: 1vh;
+    overflow: hidden;
+    padding-bottom: 0.5vh;
+}
+
+.dispatch_code {
+    position: relative;
+    border-radius: 30vh;
+    margin-left: 1vh;
+    margin-top: 1vh;
+    background-color: var(--main-lighter);
+    color: white;
+    outline: none;
+    font-size: 1.5vh;
+}
+
+.dispatch_code_label {
+    color: white;
+}
+
+.dispatch_time {
+    position: relative;
+    float: right;
+    color: white;
+    margin-right: 1vh;
+}
+
+#dispatch hr {
+    position: relative;
+    border-color: rgba(255, 255, 255, 0.2);
+    bottom: 1.5vh;
+}
+
+.dispatch_info {
+    position: relative;
+    bottom: 1.8vh;
+    float: left;
+    width: auto;
+    height: 2vh;
+    margin-right: 1vh;
+    margin-bottom: 1vh;
+}
+
+.dispatch_img {
+    position: relative;
+    height: 2vh;
+    width: 2vh;
+    left: 1vh;
+}
+
+.dispatch_info_text {
+    position: relative;
+    color: white;
+    left: 1vh;
+    bottom: 0.5vh;
+}
+
+.dispatch_officers {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 2vh;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+.dispatch_people {
+    position: relative;
+    width: 2vh;
+    height: 2vh;
+    left: 1vh;
+}
+
+.dispatch_dismiss {
+    position: absolute;
+    right: 1vh;
+    bottom: 1vh;
+    height: 1vw;
+    width: 1vw;
+}
+
+#charges {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 10vh;
+}
+#charges_searcher {
+    margin-bottom: 5vh;
+}
+
+#input_img3 {
+    position: absolute;
+    bottom:8px;
+    left:calc(10%);
+    width:1vw;
+    height:1vw;
+    top: 42.5%;
+}
+
+#dispatch_clear_all {
+    position: absolute;
+    opacity: 0.0;
+    right: 1em;
+    top: 1em;
+    width: 2vh;
+    height: 2vh;
+    pointer-events: none;
+}
+
+#report_officers {
+    position: relative;
+    float: right;
+    right: 0%;
+    height: auto;
+    width: 100%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#report_officers p {
+    color: white;
+    text-align: center;
+}
+
+#report_addofficer {
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5vh;
+    background-color: var(--main-lighter);
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.report_addofficer {
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5vh;
+    background-color: var(--main-lighter);
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#report_evidence {
+    position: relative;
+    float: right;
+    right: 0%;
+    height: auto;
+    width: 100%;
+    margin-top: 4%;
+    background-color: var(--main-content);
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+#report_evidence p {
+    color: white;
+    text-align: center;
+}
+
+#report_addevidence {
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5vh;
+    background-color: var(--main-lighter);
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.report_addevidence {
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5vh;
+    background-color: var(--main-lighter);
+    width: auto;
+    height: 3vh;
+    border: none;
+    outline: none;
+    left: 2%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    padding-left: 10px;
+    padding-right: 2.5em;
+}
+
+.Evidence p {
+    color: white;
+    text-align: center;
+}
+
+.Evidence select {
+    position: relative;
+    font-size: 1em;
+    width: 40%;
+    margin-left: 2%;
+    height: 1.5em;
+    margin-bottom: 1em;
+    color: white;
+    outline: none;
+    border: none;
+    background-color: var(--main-content);
+}
+
+.evidence_label {
+    position: relative;
+    margin-left: 15%;
+    color: white;
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+}
+
+.evidence_field {
+    position: relative;
+    font-size: 1em;
+    width: 40%;
+    margin-left: 2%;
+    height: 1.5em;
+    margin-bottom: 1em;
+    color: white;
+    outline: none;
+    border: none;
+    background-color: var(--main-content);
+    text-align: center;
+}
+
+.report_removeevidence {
+    position: relative;
+    color: var(--main-bg);
+    right: 1.5em;
+}
+
+.report_lockicon {
+    position: absolute;
+    left: 0.5em;
+    bottom: 0.15em;
+}
+
+.report_extras {
+    position: absolute;
+    top: 3.5em;
+    left: 23.5em;
+}
+
+.tooltip3 {
+    background-color: var(--main-bg);
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    color: white;
+    box-shadow: none;
+    margin-bottom: 20%;
+    font-size: 1vh;
+}
+
+.chargeerbutton {
+    color:white;
+    position:relative;
+    border:none;
+    background:none;
+    outline:none;
+    width:100%;
+    height:3em;
+    margin-bottom:0.1em;
+    background-color:var(--main-content);
+}
+
+.chargeerbutton:hover {
+    background-color: var(--main-lighter);
+}
+
+.mdt_mainbar {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.mdt_sidebar {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    max-height: 100%;
+}
+
+table {
+    border: 0.1vh solid var(--main-lighter);
+    color: white;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: var(--main-content);
+}
+
+td {
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+#chargeedit {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    background-color: var(--main-bg);
+    border: 0.1vh solid var(--main-lighter);
+}
+
+option {
+    background-color: var(--main-content);
+}
+
+.addcharge {
+    position: relative;
+    width: 20%;
+    left: 40%;
+    height: 5vh;
+    font-size: 1.5vh;
+    border: 0.1vh solid var(--main-lighter);
+    background-color: var(--main-content);
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    color: white;
+    border-radius: 5vh;
+}

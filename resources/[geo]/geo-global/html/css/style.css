@@ -1,0 +1,378 @@
+::-webkit-scrollbar {
+    width: 0.2vw;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #3d3d3d; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 255, 255); 
+  }
+
+body {
+    background-color: transparent !important;
+}
+
+#log {
+    position: fixed;
+    opacity: 0.0;
+    width: 25%;
+    height: 20%;
+    top: 70%;
+    left: 70.5%;
+    padding-left: 0.5%;
+    background-color: var(--main-bg);
+    border: 0.1vw solid var(--main-lighter);
+    border-color: var(--main-lighter);
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    z-index: 999999999;
+}
+
+#logElement {
+    position: relative;
+    font-size: 1vw;
+    line-height: 2vh;
+    color: white;
+}
+
+@font-face {
+    font-family: "SAO";
+    font-weight: 400;
+    src:
+        url("SAOWelcome-Regular.otf")
+}
+
+
+#tin {
+    position: fixed;
+    opacity: 0.0;
+    width: 20%;
+    height: 16.625%;
+    /* 35 */
+    /* 16.625 */
+    left: 40%;
+    top: 32.5%;
+    background-color: var(--main-bg);
+    -webkit-transition: height 0.3s, opacity 0.3s, top 0.3s; /* For Safari 3.1 to 6.0 */
+    transition: height 0.3s, opacity 0.3s, top 0.3s;
+    border-style: solid;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    color: white;
+    text-shadow: -0.1vh 0 black, 0 0.1vh black, 0.1vh 0 black, 0 -0.1vh black;
+}
+
+#nText {
+    position: relative;
+    font-family: "SAO";
+    font-size: 4vh;
+    bottom: 5%;
+    text-align: center;
+    line-height: 0.5;
+}
+
+#nDesc {
+    position: fixed;
+    width: 100%;
+    right: 0%;
+    top: 38.5%;
+    font-family: "SAO";
+    font-size: 2vh;
+    text-align: center;
+    line-height: 0.5;
+}
+
+#gField {
+    position: relative;
+    width: 100%;
+    height: 47.5%;
+    background: rgb(130,130,130);
+    background: linear-gradient(0deg, var(--main-bg) 0%, var(--main-content) 10%, var(--main-content) 90%, var(--main-bg) 100%);
+    transition: scale 0.3s;
+    scale: 1 0;
+}
+
+#tInput {
+    position: relative;
+    left: 7.5%;
+    width: 85%;
+    height: 25%;
+    top: 35%;
+    background-color: var(--main-lighter);
+    border-style: solid;
+    overflow: hidden;
+    border-color: var(--main-content);
+    color: rgb(0, 0, 0);
+    resize: none;
+    font-family: "SAO";
+    font-size: 2vh;
+    text-align: center;
+    outline: none;
+}
+
+#tInput2 {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    top: 10%;
+    color: rgb(0, 0, 0);
+    font-family: "SAO";
+    font-size: 2.5vh;
+    text-align: center;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+#yes {
+    position: absolute;
+    bottom: -40.5%;
+    width: 15%;
+    left: 20%;
+    z-index: 500000;
+    transition: opacity 0.1s;
+}
+
+#no {
+    position: absolute;
+    bottom: -40.5%;
+    width: 15%;
+    right: 20%;
+    z-index: 500000;
+    transition: opacity 0.1s;
+}
+
+.prog {
+    position: fixed;
+    opacity: 0.8;
+    width: 15%;
+    height: 4%;
+    background-color: rgba(83, 83, 83, 0.0);
+    bottom: 5%;
+    left: 42.5%;
+}
+
+@keyframes expand_out {
+    0% {
+        clip-path: polygon(0 50%, 0 50%, 100% 50%, 100% 50%);
+        -webkit-clip-path: polygon(0 50%, 0 50%, 100% 50%, 100% 50%);
+    }
+
+    100% {
+        clip-path: polygon(0 100%, 0 100%, 100% 100%, 100% 100%);
+        -webkit-clip-path: polygon(0 100%, 0 100%, 100% 100%, 100% 100%);
+    }
+}
+
+#detail {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 2vh;
+    bottom: 30%;
+}
+
+[id^="ex"] {
+    position: relative;
+    background-color: var(--main-lighter);
+    font-size: 2vh;
+    color: #fff;
+    height: 100%;
+    text-align: center;
+    width: 0%;
+}
+
+#merp {
+    position: fixed;
+    width: 30%;
+    height: 40%;
+    bottom: 30%;
+    overflow: hidden;
+}
+
+.progressbar {
+    position: relative;
+    opacity: 0.0;
+    margin-top: 0.5%;
+    width: 50%;
+    left: -55%;
+    height: 10%;
+    background-color: var(--main-bg);
+    border-style: solid;
+    border-color: var(--main-lighter);
+    border-width: 0.1vh;
+}
+
+#txt {
+    position: absolute;
+    color: white;
+    z-index: 500;
+    font-size: 2vh;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top: -30%;
+}
+
+#notif {
+    position: fixed;
+    left: 70%;
+    width: 29%;
+    height: 15%;
+    margin-right: 0.25%;
+    margin-top: 0.25%;
+    overflow: hidden;
+}
+
+#notif2 {
+    position: fixed;
+    left: 30%;
+    width: 40%;
+    height: 25%;
+    top: 85%;
+    overflow: hidden;
+}
+
+.notif {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25vh;
+    background-color: var(--main-bg);
+    border-style: solid;
+    margin: 1%;
+    padding: 1.25%;
+    border-color: var(--main-lighter);
+    border-width: 0.05vh;
+    overflow: hidden;
+}
+
+#minigame {
+    position: fixed;
+    top: 6%;
+    height: 3%;
+    left:  42.5%;
+    width: 15%;
+    opacity: 0.0;
+    border-style: solid;
+    border-color: var(--main-lighter);
+    background-color: var(--main-content);
+    border-width: 1px;
+}
+
+#minigame-bg {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: var(--main-lighter);
+    transition: width 3s linear;
+    max-width: 100%;
+}
+
+#minigame-win {
+    position: absolute;
+    width: 5%;
+    left: 30%;
+    height: 100%;
+    border-left: solid;
+    border-right: solid;
+    border-width: thin;
+    border-color: white;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    color: black;
+}
+
+#dialogue {
+    font-family: Arial, sans-serif;
+    display: none;
+    position: fixed;
+    background-color: var(--main-bg);
+    left: 40%;
+    width: 20%;
+    height: 15%;
+    top: 42.5%;
+    height: auto;
+}
+
+#dialogue_title {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 2vh;
+}
+
+.input_container { 
+    position:relative;
+    padding:0;
+    margin:0;
+    background: none;
+    outline: none;
+}
+.input { 
+    position: relative;
+    height:20px;
+    margin:0;
+    padding-left:30px;
+    padding-bottom:5px;
+    width: 80%;
+    left: 10%;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: 1px;
+    color: white;
+    font-size: 1.5vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow-wrap: break-word;
+    height: auto;
+}
+
+#input_img {
+    position: absolute;
+    bottom:8px;
+    left:calc(10%);
+    width:1vw;
+    height:1vw;
+    top: 30%;
+}
+
+#confirm {
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin-bottom: 5%;
+    width: 33%;
+    left: 55%;
+    background-color: rgb(209, 141, 209);    
+    border: none;
+    outline: none;
+    border-radius: 10%;
+    height: 3vh;
+}
+
+#deny {
+    font-family: Arial, sans-serif;
+    position: relative;
+    margin-bottom: 5%;
+    width: 33%;
+    right: 25%;
+    background-color: rgb(221, 118, 118);    
+    border: none;
+    outline: none;
+    border-radius: 10%;
+    height: 3vh;
+}

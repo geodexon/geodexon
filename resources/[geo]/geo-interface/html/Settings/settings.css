@@ -1,0 +1,157 @@
+#settings {
+    font-family: Arial, sans-serif;
+    position: fixed;
+    display: none;
+    width: 40%;
+    left: 30%;
+    top: 20%;
+    height: 60%;
+    background-color: var(--main-bg);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--main-lighter);
+}
+
+.settings_header {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    border-bottom: solid;
+    border-color: var(--main-lighter);
+    border-width: 1px;
+    background-color: var(--main-content);
+    overflow: hidden;
+}
+
+.settings_header_text {
+    position: relative;
+    font-size: 2vh;
+    color: white;
+    text-align: center;
+    line-height: 2vh;
+    background-color: var(--main-content);
+}
+
+.setings_window {
+    float: left;
+    position: relative;
+}
+
+#settings_color {
+    position: relative;
+    width: 46%;
+    height: 50%;
+    margin-left: 2%;
+    margin-top: 2%;
+    border-style: solid;
+    border-width: 0.1vh;
+    border-color: var(--main-lighter);
+}
+
+#settings_settings {
+    position: relative;
+    width: 46%;
+    height: 50%;
+    margin-left: 2%;
+    margin-top: 2%;
+    border-style: solid;
+    border-width: 0.1vh;
+    border-color: var(--main-lighter);
+    overflow-y: scroll;
+}
+
+
+#settings_color_text {
+    bottom: 1.5vh;
+}
+
+.settings_color_option {
+    position: relative;
+    left: 5%;
+    top: 5%;
+    transform: scale(1.5);
+    margin-bottom: 2%;
+}
+
+.settings_color_option_rgb {
+    position: relative;
+    left: 6%;
+    top: 5%;
+    width: 1.2vh;
+    height: 1.2vh;
+    -webkit-appearance: none;
+    border: none;
+    transform: scale(1.5);
+    margin-bottom: 2%;
+    border-style: none;
+}::-webkit-color-swatch-wrapper {
+    padding: 0;
+}::-webkit-color-swatch {
+    border: none;
+}
+
+.settings_color_option_text {
+    position: relative;
+    color: white;
+    left: 7%;
+    top: 5%;
+}
+
+.settings_setter {
+    position: relative;
+    left: 5%;
+    top: 5%;
+    transform: scale(1.5);
+    margin-bottom: 2%;
+}
+
+.settings_commands {
+    position: relative;
+    color: white;
+    left: 5%;
+    top: 5%;
+    margin-bottom: 3%;
+}
+
+.settings_higher {
+    margin-bottom: 0%;
+    top: 0%;
+}
+
+.Settings .setcon {
+    position: relative;
+    float: left;
+    font-family: Arial, sans-serif;
+    top: 5%;
+    width: 46%;
+    height: 85%;
+    margin-left: 2.5%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    border: 0.2vh solid var(--main-content);
+}
+
+.wider {
+    width: 8vh;
+    margin-left: 1.5vh;
+    margin-top: 0.5vh;
+    height: 0.75vh;
+    background: var(--main-content);
+    border: 0.1vh solid;
+    border-radius: 5vh;
+}
+
+.settings_color_option_rgb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1vh;
+    height: 1vh;
+    background-color: var(--main-lighter);
+    border-radius: 5vh;
+}
+
+.settings_color_option_text2 {
+    position: relative;
+    color: white;
+    left: 11%;
+    top: 5%;
+}

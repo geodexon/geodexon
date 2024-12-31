@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#status {
+    position: fixed;
+    width: 20%;
+    height: 3%;
+    margin: 0;
+    padding: 0;
+    left: 25%;
+    top: 0.25%;
+}
+
+.status_container {
+    display: inline-block;
+    position: relative;
+    width: 6.5%;
+    margin-right: 5%;
+}
+
+#status_image {
+    position: relative;
+    width: 100%;
+}
+
+#remaining_time {
+    position: relative;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    line-height: 7%;
+    font-size: 1.3vh;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}

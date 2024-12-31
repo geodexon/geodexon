@@ -1,0 +1,354 @@
+#char_field {
+    display: none;
+    position: fixed;
+    width: 40%;
+    left: 30%;
+    top: 75%;
+    height: 20%;
+    background-color: var(--main-bg);
+    font-family: Arial, sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--main-lighter);
+}
+
+#char_name {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 2vh;
+}
+
+#char_delete {
+    position: absolute;
+    right: 2%;
+    bottom: 2%;
+    width: 20%;
+    height: 20%;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.5vh;
+    background-color: rgb(151, 58, 41);
+}
+
+
+#char_work {
+    position: absolute;
+    right: 40%;
+    bottom: 2%;
+    width: 20%;
+    height: 20%;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.5vh;
+    background-color: rgb(151, 107, 41);
+}
+
+#char_select {
+    position: absolute;
+    left: 2%;
+    bottom: 2%;
+    width: 20%;
+    height: 20%;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.5vh;
+    background-color: rgb(41, 151, 69);
+}
+
+#char_info {
+    position: relative;
+    left: 2%;
+    color: white;
+    line-height: 0.1vh;
+}
+
+#char_create {
+    position: relative;
+    width: 90%;
+    height: 5vh;
+    left: 5%;
+    top: 5%;
+    margin-bottom: 2%;
+    color: white;
+    font-size: 1.5vh;
+    background-color: rgb(41, 151, 69);
+    border: none;
+    outline: none;
+}
+
+#EntitySelect {
+    position: fixed;
+    width: auto;
+    height: auto;
+    display: none;
+    left: 20%;
+    top: 20%;
+    max-height: 40%;
+    padding: 1%;
+    overflow-y: scroll;
+    overflow-x: visible;
+}
+
+#EntitySelect::-webkit-scrollbar {
+    display: none;
+}
+
+#EntitySelect2 {
+    position: fixed;
+    width: auto;
+    height: auto;
+    display: none;
+    left: 20%;
+    top: 20%;
+    max-height: 40%;
+    padding: 1%;
+    overflow-y: scroll;
+    overflow-x: visible;
+}
+
+#EntitySelect2::-webkit-scrollbar {
+    display: none;
+}
+
+.entity_option {
+    display: block;
+    width: 10vw;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: background-color 0.25s;
+    box-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white;
+    top: 10%;
+}
+
+.entity_submenu {
+    position: fixed;
+}
+
+.entity_option:hover {
+    background-color: rgba(83, 83, 83, 0.5);
+}
+
+.hover {
+    background-color: rgba(83, 83, 83, 0.5);
+}
+
+#entity_option_name {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+}
+
+#entity_option_expand {
+    float: right;
+    position: relative;
+    font-size: 1.5vh;
+    right: 0%;
+    top: -3.5vh;
+    margin: 0;
+    padding: 10px;
+}
+
+.supercenter {
+    opacity: 0.0;
+    position: fixed;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    animation: rotation 2s infinite linear;
+    fill: var(--main-lighter);
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+#Selector-Options {
+    position: fixed;
+    left: 50%;
+    top: 53%;
+    width: auto;
+    height: 30%;
+}
+
+#Selector-Option {
+    position: relative;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-style: normal;
+    user-select: none;
+    left: 2%;
+    font-size: 1.4vh;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    margin: 0px;
+}
+
+#discord {
+    position: fixed;
+    width: 30%;
+    height: 20%;
+    font-size: 1.75vh;
+    color: white;
+    left: 35%;
+    top: 40%;
+    background-color: var(--main-bg);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: none;
+}
+
+#dcord {
+    width: 80%;
+    margin-left: 10%;
+}
+
+#dcordbutton {
+    position: absolute;
+    width: 20%;
+    bottom: 20%;
+    left: 10%;
+    height: 20%;
+    border-radius: 1.5vh;
+    background-color: var(--main-lighter);
+    outline: none;
+    border: none;
+    font-weight: bold;
+}
+
+#dcordbutton2 {
+    position: absolute;
+    width: 20%;
+    bottom: 20%;
+    right: 10%;
+    height: 20%;
+    border-radius: 1.5vh;
+    background-color: var(--main-lighter);
+    outline: none;
+    border: none;
+    font-weight: bold;
+}
+
+#changelog {
+    position: fixed;
+    display: none;
+    right: 5vh;
+    top: 10vh;
+    width: calc(22.5vh * (16/9));
+    height: auto;
+    max-height: 60vh;
+    background-color: var(--main-bg);
+    border: 0.1vh solid var(--main-lighter);
+    font-family: Arial, sans-serif;
+}
+
+#changelog_title {
+    position: relative;
+    font-size: 2vh;
+    color: white;
+    text-align: center;
+    line-height: 0.5vh;
+}
+
+.changelog_item {
+    position: relative;
+    font-size: 1.5vh;
+    color: white;
+}
+
+#changelog_date_selector {
+    position: relative;
+    text-align: center;
+    outline: none;
+    background: none;
+    color: white;
+    width: 50%;
+    left: 25%;
+    bottom: 0.1vh;
+}
+
+option {
+    background-color: var(--main-content);
+    border: 0.1vh solid var(--main-lighter);
+    outline: none;
+}
+
+.dicksout {
+    color: white;
+    width: auto;
+    user-select: none;
+    margin-bottom: 2%;
+}
+
+.dicksout:hover {
+    color: pink;
+}
+
+.dialogue {
+    position: fixed;
+    width: 20em;
+    height: 5em;
+    left: 50%;
+    top: 50%;
+    background-color: var(--main-bg);
+    border: 0.1em solid var(--main-lighter);
+    border-radius: 10em;
+}
+
+.dialogue-headshot {
+    position: relative;
+    height: 80%;
+    top: 10%;
+    left: 1em;
+    border: 0.1em solid var(--main-lighter);
+    border-radius: 10em;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.bubble {
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    width: 300px;
+    border-radius: 40px;
+    padding: 24px;
+    text-align: center;
+    color: #000;
+}
+
+.bubble-bottom-left:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 24px solid var(--main-bg);
+    border-right: 12px solid transparent;
+    border-top: 12px solid var(--main-bg);
+    border-bottom: 20px solid transparent;
+    left: 32px;
+    bottom: -24px;
+}
+
+.dialogue-text {
+    position: relative;
+    font-family: sans-serif;
+    top: -4.5em;
+    left: 6em;
+    width: 60%;
+    height: 100%;
+    color: white;
+}

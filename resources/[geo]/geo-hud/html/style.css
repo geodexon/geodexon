@@ -1,0 +1,254 @@
+
+
+#plyrHud {
+    position: fixed;
+    opacity: 0.0;
+    width: 40%;
+    left: 30%;
+    color: rgb(255, 255, 255);
+    font-size: 2vh;
+    text-shadow: #000;
+    text-align: center;
+    top: 1%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    display: none;
+    opacity: 1.0;
+    width: 4%;
+    margin: 0.3%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    scale: 1.25;
+}
+
+.container img {
+    max-width: 1vh;
+}
+
+.clr {
+    position: absolute;
+    width: 0%;
+    height: 50%;
+    transition: width 1s;
+}
+
+.barOverflow{ /* Wraps the rotating .bar */
+    position: absolute;
+    width: 18vh; height: 9vh; /* Half circle (overflow) */
+    overflow: hidden;
+    scale: 0.15;
+    left: -7.5vh;
+    top: -4vh;
+}
+
+.clr span {
+    position: fixed;
+    opacity: 0.0;
+}
+
+
+.bar{
+    position: absolute;
+    top: 0; left: 0;
+    width: 18vh; height: 18vh; /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2vh solid #ccc;     /* half gray, */
+    border-bottom-color: #0bf;  /* half azure */
+    border-right-color: #0bf;
+    transition: transform 1s;
+  }
+
+#health {
+    position: relative;
+    width: 100%;
+    content:url('pics/health.png');
+}
+
+#armor {
+    position: relative;
+    width: 100%;
+    content:url('pics/armor.png');
+}
+
+#weight {
+    position: relative;
+    width: 100%;
+    content:url('pics/weight.png');
+}
+
+#hunger {
+    position: relative;
+    width: 100%;
+    content:url('pics/hunger.png');
+}
+
+#thirst {
+    position: relative;
+    width: 100%;
+    content:url('pics/thirst.png');
+}
+
+#stamina {
+    position: relative;
+    width: 100%;
+    content:url('pics/stamina.png');
+}
+
+#voice {
+    position: relative;
+    width: 100%;
+    content:url('pics/voice.png');
+}
+
+#nos {
+    position: relative;
+    width: 100%;
+    content:url('pics/nos.png');
+}
+
+#fuel {
+    position: relative;
+    width: 100%;
+    content:url('pics/gas.png');
+}
+
+#fuelbg {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    background-color: rgb(206, 122, 25);
+    transition: width 1s;
+}
+
+#txt {
+    float: left;
+    position: fixed;
+    opacity: 0.0;
+    bottom: 1.5%;
+    left: 17%;
+    width: 40%;
+    height: 30%;
+}
+
+#txtBar {
+    position: fixed;
+    opacity: 0.0;
+    left: 1.5%;
+    top: 96.75%;
+    width: 14.1%;
+    height: 1.7%;
+    background-color: rgba(52, 52, 52, 0.4);
+    border-color: rgba(52, 52, 52, 0.4);
+    border-width: 0.1vh;
+}
+
+#speed {
+    float: left;
+    position: relative;
+    color: white;
+    font-size: 2vh;
+    top: 79%;
+    left: 0%;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+}
+
+#mph {
+    margin-left: 1%;
+    float: left;
+    position: relative;
+    color: white;
+    font-size: 1.14vh;
+    top: 83%;
+    left: 0%;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    font-family: Arial, sans-serif;
+
+}
+
+#location {
+    float: left;
+    position: absolute;
+    color: white;
+    font-size: 1.75vh;
+    left: 0%;
+    top: 87%;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    font-family: Arial, sans-serif;
+}
+
+#location2 {
+    position: relative;
+    color: white;
+    font-size: 1.4vh;
+    top: 10%;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    opacity: 0.0;
+}
+
+#time {
+    position: absolute;
+    float: left;
+    color: white;
+    font-size: 1.75vh;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    left: -26.5%;
+    top: 87.6%;
+    font-family: Arial, sans-serif;
+
+}
+
+#belt {
+    position: absolute;
+    float: left;
+    color: rgb(255, 146, 146);
+    font-size: 1.75vh;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    left: -37.5%;
+    top: 87.6%;
+    font-family: Arial, sans-serif;
+
+}
+
+#lock {
+    position: absolute;
+    float: left;
+    color: rgb(255, 146, 146);
+    font-size: 1.75vh;
+    text-shadow: -0.1vw 0 black, 0 0.1vw black, 0.1vw 0 black, 0 -0.1vw black;
+    left: -9.75%;
+    top: 87.6%;
+    font-family: Arial, sans-serif;
+
+}
+
+#rect {
+    opacity: 0.0;
+    position: fixed;
+    width: 15%;
+    height: 18%;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+.lock {
+    opacity: 0.0;
+    position: fixed;
+    width: 1.5%;
+    bottom: 2%;
+    left: 1%;
+}
+
+.belt {
+    opacity: 0.0;
+    position: fixed;
+    width: 1.5%;
+    bottom: 2%;
+    left: 2.5%;
+}

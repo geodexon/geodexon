@@ -1,0 +1,42 @@
+#houserob {
+    position: fixed;
+    width: 20em;
+    height: 6em;
+    bottom: 1.25em;
+    left: 4em;
+    background-color:var(--main-bg);
+    border: 0.1em solid var(--main-lighter);
+    position: none;
+    opacity: 0.0;
+    font-size: 1.5vh;
+}
+
+#houserob p {
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 1.25em;
+    bottom: 0.4em;
+}
+
+#houserob hr {
+    position: relative;
+    line-height: 0.1em;
+    bottom: 1.5em;
+}
+
+.houserob_progress {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: 1.5em;
+    border: 0.1em solid var(--main-lighter);
+    bottom: 1em;
+}
+
+.houserob_progress div {
+    height: 100%;
+    width: 0%;
+    background-color: var(--main-content);
+}

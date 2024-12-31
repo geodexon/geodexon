@@ -1,0 +1,398 @@
+local locations = {
+    {vector3(-888.86, -852.97, 20.57), 'Little Seoul'},
+    {vector3(197.37, -942.8, 30.69), 'Legion Square'},
+    {vector3(443.25, -983.41, 30.69), 'Mission Row'},
+    {vector3(301.15, -1440.93, 29.79), 'Crusade'},
+    {vector3(-777.19, -1495.85, 2.16), 'La Puerta Dock'},
+    {vector3(252.48, 218.07, 106.29), 'Vinewood Bank'}
+}
+
+CreateThread(function()
+    while true do
+        Wait(1000 * 60 * 5)
+        Skelebros()
+        Wait(Random(1000 * 60 * 30, 1000 * 60 * 80))
+    end
+end)
+
+function Skelebros(pPos)
+    local loc = locations[Random(#locations)]
+
+    if pPos then
+        loc = pPos
+    end
+
+    TriggerClientEvent('PhoneNotif', -1, 'messages', 'Danger in '..loc[2])
+    for i=1,10 do
+        CreateThread(function()
+            local ped = CreatePed(1, 'skeleton', loc[1], 0.0, true, true)
+            Wait(1000)
+            Entity(ped).state.controlled = true
+            Entity(ped).state.skeleton = true
+
+            SetPedConfigFlag(ped, 17, true)
+
+            if i == 10 then
+                SetPedConfigFlag(ped, 2, true)
+            end
+
+            local player = GetClosestPlayer(GetEntityCoords(ped))
+            local lastPlayer
+
+            while GetEntityHealth(ped) == 0 do
+                Wait(100)
+            end
+
+            local mobID = uuid()
+            while DoesEntityExist(ped) and GetEntityHealth(ped) > 0 do
+                local player = GetClosestPlayer(GetEntityCoords(ped))
+                if player then
+                    local playePed = GetPlayerPed(player)
+
+                    if player ~= lastPlayer then
+                        TriggerClientEvent('Halloween.Outline', player, NetworkGetNetworkIdFromEntity(ped))
+                    end
+                    lastPlayer = player
+                    TaskGoToEntity(ped, playePed, -1, 1.0, 1.0, 1.0, 1)
+
+                    if i == 10 then
+                        if Vdist3(GetEntityCoords(ped), GetEntityCoords(playePed)) <= 50.0 then
+                            if RateLimit(mobID, 30000) then
+                                ClearPedTasks(ped)
+                                TriggerClientEvent('Halloween.Spellcaster', -1, NetworkGetNetworkIdFromEntity(ped), GetEntityCoords(playePed))
+                                Wait(7500)
+                            end
+                        end
+                    end
+
+                    if Vdist3(GetEntityCoords(ped), GetEntityCoords(playePed)) <= 1.5 then
+                        ApplyForceToEntity(playePed, 1, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 1, 1, 0, 1)
+                        TriggerClientEvent('Halloween.Ouchy', player)
+                    end
+                else
+                    if lastPlayer then
+                        TriggerClientEvent('Halloween.RemoveOutline', lastPlayer, NetworkGetNetworkIdFromEntity(ped))
+                        TaskReactAndFleePed(ped, GetPlayerPed(lastPlayer))
+                        lastPlayer = nil
+                        Wait(5000)
+                    end
+                end
+
+                Wait(500)
+            end
+
+            if DoesEntityExist(ped) then
+                Wait(1000)
+                local id = exports['geo-inventory']:CreateDrop(GetEntityCoords(ped) + vec(0.0, 0.0, 1.0))
+                exports['geo-inventory']:AddItem('Drops', id, 'bone', 1)
+                if Random(100) == 1 then
+                    exports['geo-inventory']:AddItem('Drops', id, 'bone_hq', 1)
+                end
+
+                Wait(1000 * 60 * 5)
+                if DoesEntityExist(ped) and Entity(ped).state.skeleton then
+                    DeleteEntity(ped)
+                end
+            end
+        end)
+    end
+end
+
+local skeletonKing
+function SkeletonKing()
+    local ped = CreatePed(1, 'skeleton', vector3(204.11, -926.43, 30.7), 150.0, true, true)
+
+    while not DoesEntityExist(ped) do
+        Wait(100)
+    end
+
+    if skeletonKing and DoesEntityExist(skeletonKing) then DeleteEntity(skeletonKing) end
+
+    skeletonKing = ped
+    Wait(1000)
+    Entity(ped).state.controlled = true
+    Entity(ped).state.skeleton = true
+    Entity(ped).state.health = 250
+
+    SetPedConfigFlag(ped, 17, true)
+    TriggerClientEvent('PhoneNotif', -1, 'messages', 'The Skeleton King has Arrived')
+
+    if i == 10 then
+        SetPedConfigFlag(ped, 2, true)
+    end
+
+    while GetEntityHealth(ped) == 0 do
+        Wait(100)
+    end
+    local player = GetClosestPlayer(GetEntityCoords(ped))
+
+    Wait(500)
+    while DoesEntityExist(ped) and GetEntityHealth(ped) > 0 do
+        local players= GetClosestPlayers(vector3(204.11, -926.43, 30.7))
+        if #players >= 1 then
+            local targetPlayer = players[Random(#players)]
+            TriggerClientEvent('SkeletonKing.Magic', -1, NetworkGetNetworkIdFromEntity(ped), GetEntityCoords(GetPlayerPed(targetPlayer)), Random(5), NetworkGetNetworkIdFromEntity(GetPlayerPed(targetPlayer)))
+        end
+
+        Wait(10000)
+    end
+
+    skeletonKing = nil
+end
+
+local damages = {}
+RegisterNetEvent('BoneRattle', function()
+    local source = source
+    Entity(skeletonKing).state.health = Entity(skeletonKing).state.health - 1
+    local health = Entity(skeletonKing).state.health
+
+    if health > 0 then
+        local char = GetCharacter(source)
+        if not damages[char.id] then
+            damages[char.id] = 1
+        else
+            damages[char.id] = damages[char.id] + 1
+        end
+    else
+        DeleteEntity(skeletonKing)
+
+        for k,v in pairs(damages) do
+            if v >= 10 then
+                ExecuteCommand('_addcreditchar '..k..' bone 35')
+                if Random(100) <= 25 then
+                    Wait(500)
+                    ExecuteCommand('_addcreditchar '..k..' bone_hq 2')
+                end
+
+                if Random(100) <= 5 then
+                    Wait(500)
+                    ExecuteCommand('_addcreditchar '..k..' skullcrusher 1')
+                end
+
+                if Random(100) == 1 then
+                    Wait(500)
+                    ExecuteCommand('_addcreditchar '..k..' vehicle_token 1')
+                end
+            end
+        end
+
+        damages = {}
+    end
+
+    if health == 200 or health == 100 then
+        Skelebros({GetEntityCoords(skeletonKing), 'Skeleton Kings Army'})
+    end
+end)
+
+local skeletonOverLord
+function SkeletonOverlord()
+    local ped = CreatePed(1, 'skeleton', vector3(5478.29, -5846.21, 21.96), 150.0, true, true)
+
+    while not DoesEntityExist(ped) do
+        Wait(100)
+    end
+
+    if skeletonOverLord and DoesEntityExist(skeletonOverLord) then DeleteEntity(skeletonOverLord) end
+
+    skeletonOverLord = ped
+    Wait(1000)
+    Entity(ped).state.controlled = true
+    Entity(ped).state.skeleton = true
+    Entity(ped).state.health = 650
+
+    SetPedConfigFlag(ped, 17, true)
+    TriggerClientEvent('PhoneNotif', -1, 'messages', 'The Skeleton Overlord has Created a Rift')
+    TriggerClientEvent('Skeleton.Portal', -1, true)
+    exports['geo-sync']:SetWeather('HALLOWEEN')
+
+
+    if i == 10 then
+        SetPedConfigFlag(ped, 2, true)
+    end
+
+    while GetEntityHealth(ped) == 0 do
+        Wait(100)
+    end
+    local player = GetClosestPlayer(GetEntityCoords(ped))
+
+    Wait(500)
+
+    CreateThread(function()
+        Entity(ped).state.time = 1200
+        while DoesEntityExist(ped) and GetEntityHealth(ped) > 0 do
+            Entity(ped).state.time = Entity(ped).state.time - 1
+
+            if Entity(ped).state.time == 60 then
+                TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_leave1.mp3')
+            end
+
+            if Entity(ped).state.time == 0 then
+                TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_leave2.mp3')
+                TriggerClientEvent('Overlord.PopOut', -1, GetEntityCoords(skeletonOverLord))
+                DeleteEntity(skeletonOverLord)
+                skeletonOverLord = nil
+                break
+            end
+
+            Wait(1000)
+        end
+
+        exports['geo-sync']:SetWeather()
+        TriggerClientEvent('Skeleton.Portal', -1, false)
+    end)
+
+    while DoesEntityExist(ped) and GetEntityHealth(ped) > 0 do
+        local players= GetClosestPlayers(vector3(5478.29, -5846.21, 21.96))
+        if #players >= 1 then
+            local targetPlayer = players[Random(#players)]
+            TriggerClientEvent('skeletonOverLord.Magic', -1, NetworkGetNetworkIdFromEntity(ped), GetEntityCoords(GetPlayerPed(targetPlayer)), Random(6), NetworkGetNetworkIdFromEntity(GetPlayerPed(targetPlayer)))
+        end
+
+        Wait(10000)
+    end
+
+    skeletonOverLord = nil
+end
+
+AddEventHandler('Login', function(char)
+    if skeletonOverLord then
+        TriggerClientEvent('Skeleton.Portal', char.serverid, true)
+    end
+end)
+
+local damages = {}
+RegisterNetEvent('BoneRattle2', function()
+    local source = source
+    Entity(skeletonOverLord).state.health = Entity(skeletonOverLord).state.health - 1
+    local health = Entity(skeletonOverLord).state.health
+
+    if health > 0 then
+        local char = GetCharacter(source)
+        if not damages[char.id] then
+            damages[char.id] = 1
+        else
+            damages[char.id] = damages[char.id] + 1
+        end
+
+        if health == 650 then
+            TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_hurt1.mp3')
+        elseif health == 475 then
+            TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_hurt2.mp3')
+        elseif health == 350 then
+            TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_hurt3.mp3')
+        elseif health == 150 then
+            TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_hurt4.mp3')
+        end
+    else
+        TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_hurt5.mp3')
+        DeleteEntity(skeletonOverLord)
+        for k,v in pairs(damages) do
+            if v >= 75 then
+                ExecuteCommand('_addcreditchar '..k..' bone 80')
+                if Random(100) <= 75 then
+                    Wait(500)
+                    ExecuteCommand('_addcreditchar '..k..' bone_hq 4')
+                end
+
+                if Random(100) <= 20 then
+                    Wait(500)
+                    ExecuteCommand('_addcreditchar '..k..' skullcrusher 1')
+                end
+
+                if Random(100) == 2 then
+                    Wait(500)
+                    ExecuteCommand('_addcreditchar '..k..' vehicle_token 1')
+                end
+
+                Wait(500)
+
+                ExecuteCommand('_addcreditchar '..k..' jack 1')
+            end
+        end
+
+        damages = {}
+    end
+
+    if health == 600 or health == 500 or health == 300 or health == 200 or health == 100 then
+        Skelebros({GetEntityCoords(skeletonOverLord), 'Skeleton Kings Army'})
+        TriggerClientEvent('Overlord.Audio', -1, GetEntityCoords(skeletonOverLord), 'overlord_army.mp3')
+    end
+end)
+
+RegisterCommand('_skelebro', function(source)
+    if source == 0 then
+        Skelebros()
+    else
+        local char = GetCharacter(source)
+        if char.username then
+            SkeletonOverlord()
+        end
+    end
+end)
+
+function GetClosestPlayer(pos)
+    local closest, position
+    for k,v in pairs(GetPlayers()) do
+        local playerPos = GetEntityCoords(GetPlayerPed(v))
+        local dist = Vdist3(playerPos, pos)
+        if dist <= 250.0 and dist < (position or 250.0) then
+            local char = GetCharacter(v)
+            if char and char.dead ~= 1 then
+                position = dist
+                closest = v
+            end
+        end
+    end
+
+    return closest
+end
+
+function GetClosestPlayers(pos)
+    local players = {}
+    for k,v in pairs(GetPlayers()) do
+        local playerPos = GetEntityCoords(GetPlayerPed(v))
+        local dist = Vdist3(playerPos, pos)
+        if dist <= 100.0 then
+            local char = GetCharacter(v)
+            if char and char.dead ~= 1 then
+                table.insert(players, v)
+            end
+        end
+    end
+
+    return players
+end
+
+Task.Register('SkeletonBloop', function(source, target)
+    TriggerClientEvent('SkeletonBloop', target)
+end)
+
+CreateThread(function()
+    while true do
+        Wait(60000)
+
+        if os.date('%H:%M') == '04:00' then
+            print('summon the king')
+            SkeletonKing()
+            Wait(60000)
+        end
+
+        if os.date('%H:%M') == '12:00' then
+            print('summon the king')
+            SkeletonKing()
+            Wait(60000)
+        end
+
+        if os.date('%H:%M') == '16:00' then
+            print('summon the king')
+            SkeletonKing()
+            Wait(60000)
+        end
+
+        if os.date('%H:%M') == '22:00' then
+            print('summon the overlord')
+            SkeletonOverlord()
+            Wait(60000)
+        end
+    end
+end)

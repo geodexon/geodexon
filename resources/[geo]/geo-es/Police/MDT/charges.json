@@ -1,0 +1,661 @@
+[
+    {
+        "name": "Terrorism",
+        "time_max": 5760,
+        "fine": 30000,
+        "desc": "The unlawful use of force and violence against persons or property to intimidate or coerce a government, the civilian population, or any segment thereof, in furtherance of political or social objectives",
+        "type": "Felony",
+        "hidden": false,
+        "trial": true
+    },
+    {
+        "name": "Murder",
+        "time_max": 5760,
+        "fine": 50000,
+        "desc": "The premeditated act of ending another person's life.",
+        "type": "Felony",
+        "hidden": false,
+        "trial": true
+    },
+    {
+        "name": "Attempted Murder",
+        "time_max": 2880,
+        "fine": 10000,
+        "desc": "The premeditated attempt to end the life of an individual",
+        "type": "Felony",
+        "hidden": false,
+        "trial": true
+    },
+    {
+        "name": "Escaping Prison",
+        "time_max": 2880,
+        "fine": 0,
+        "desc": "A person who knowingly or intentionally leaves a jail or prison facility before their time has been completely served.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Drug Trafficking",
+        "time_max": 2880,
+        "fine": 30000,
+        "desc": "The act of knowingly transporting 1 kilogram or more of any CDS",
+        "type": "Felony",
+        "hidden": false,
+        "trial": true
+    },
+    {
+        "name": "Voluntary Manslaughter",
+        "time_max": 1440,
+        "fine": 10000,
+        "desc": "A person who knowingly kills another person with quarrel or heat of passion.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Forgery",
+        "time_max": 30,
+        "fine": 2000,
+        "desc": "The act of knowingly altering, creating, or uses a falsified written document with the intent to defraud or deceive another.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Impersonation of a Government Employee",
+        "time_max": 45,
+        "fine": 1500,
+        "desc": "The act of presenting themselves as, or claiming to be a government employee without being employed by said agency",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Possession of an Illegal Weapon",
+        "time_max": 20,
+        "fine": 2000,
+        "desc": "The act of possessing a automatic weapon, explosive ordinance, improvised explosive, and any other weapon not sold within Los Santos. This law does not apply to Law Enforcement agencies transporting evidence",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Arson",
+        "time_max": 15,
+        "fine": 1500,
+        "desc": "The act of intentionally setting fire or aiding in starting said fire to a structure or property without authorization from the property owner",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Criminal Confinement",
+        "time_max": 15,
+        "fine": 750,
+        "desc": "The act of intentionally confining another person without their consent",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Extortion",
+        "time_max": 25,
+        "fine": 2500,
+        "desc": "The act of using violence or threats in order to obtain property and/or money from an individual",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Armed Robbery",
+        "time_max": 15,
+        "fine": 500,
+        "desc": "The act of taking property from the possession of another person against their will, by means of force facilitated with a weapon.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Attempted Burglary",
+        "time_max": 15,
+        "fine": 500,
+        "desc": "The act of entering and attempting to loot a property",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Burglary",
+        "time_max": 20,
+        "fine": 1500,
+        "desc": "The act of entering and looting a property",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Kidnapping",
+        "time_max": 20,
+        "fine": 750,
+        "desc": "The act of knowingly or intentionally removes another person, by fraud, enticement, force, or threat of force, from one place to another.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Possession of a CDS with Intent to Distribute",
+        "time_max": 15,
+        "fine": 750,
+        "desc": "The act of possessing more than the legal limit of a controlled substance or providing a controlled substance to another individual without a license to do so.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Bribery",
+        "time_max": 15,
+        "fine": 500,
+        "desc": "A person who offers or gives a monetary gift, gratuity, valuable goods, or other reward to an individual in an attempt to influence their actions.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Involuntary Manslaughter",
+        "time_max": 150,
+        "fine": 5000,
+        "desc": "The act of unintentionally ending the life of another person ",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Felony Battery",
+        "time_max": 30,
+        "fine": 500,
+        "desc": "A person who knowingly or intentionally touches another person in a rude, insolent, or angry manner that results in serious injury or committed with a deadly weapon.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Escaping From Custody",
+        "time_max": 10,
+        "fine": 250,
+        "desc": "The act of escaping custody of a law enforcement officer while being detained or in the process of being arrested.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Criminal Recklessness",
+        "time_max": 20,
+        "fine": 250,
+        "desc": "The act of recklessly, knowingly, or intentionally performing an act that creates a substantial risk of bodily injury to another person",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Fleeing and Eluding",
+        "time_max": 30,
+        "fine": 1000,
+        "desc": "The act of fleeing from a law enforcement officer while knowing said officer is attempting to pull them over in a marked patrol vehicle with its lights and/or sirens active.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Grand Theft Auto",
+        "time_max": 20,
+        "fine": 500,
+        "desc": "A person who commits the theft of any motor vehicle",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Grand Theft",
+        "time_max": 15,
+        "fine": 1000,
+        "desc": "A person who knowingly or intentionally exerts unauthorized control over property of another person, with intent to deprive the other person of any part of its value or use of property costing over $1000.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Robbery",
+        "time_max": 10,
+        "fine": 250,
+        "desc": "A person who takes property from the possession of another against their will, by means of force or fear, such as through criminal threats, assault or battery.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Dissuading A Victim",
+        "time_max": 60,
+        "fine": 4500,
+        "desc": "A person who knowingly and maliciously prevents or dissuades any witness or victim from attending or giving testimony at any trial, proceeding or inquiry, or attempts to alter any testimony or evidence.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Accessory",
+        "time_max": 0,
+        "fine": 0,
+        "desc": "Those who knowingly and willfully participate in the commission of a crime may be charged to the full extent of the law regarding that crime, even if they did not directly commit it themselves. They must have played a role in committing the crime",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Contempt of Court",
+        "time_max": 500,
+        "fine": 30000,
+        "desc": "The act of being disobedient to or disrespectful toward a court of law and its officers in the form of behavior that opposes or defies the authority, justice and dignity of the court.",
+        "type": "Felony",
+        "hidden": false
+    },
+    {
+        "name": "Resisting Arrest",
+        "time_max": 15,
+        "fine": 300,
+        "desc": "A person who avoids apprehension from an officer by non-vehicular means or resists apprehension by any physical means.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Tampering w/Evidence",
+        "time_max": 15,
+        "fine": 400,
+        "desc": "A person who intentionally destroys or attempts to destroy evidence or attempts to create false evidence, conceal, or alter any evidence that can later potentially be used in a criminal investigation or court proceeding.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Brandishing a Firearm",
+        "time_max": 20,
+        "fine": 500,
+        "desc": "1. It is illegal for any person to point, hold, draw, or exhibit any firearm, whether capable of being fired or not in the presence of any other person, except in self-defense. <br><br>2. It is illegal to open carry a rifle or shotgun in public places or on a property in which the owner has not permitted you to do so.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Unlawful use of a Weapon",
+        "time_max": 20,
+        "fine": 750,
+        "desc": "A person who  fires a firearm in a grossly negligent manner which could result in injury or death.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Theft",
+        "time_max": 10,
+        "fine": 500,
+        "desc": "A person who knowingly or intentionally exerts unauthorized control over property of another person, with intent to deprive the other person of any part of its value or use.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Battery",
+        "time_max": 20,
+        "fine": 200,
+        "desc": "A person who knowingly or intentionally touches another person in a rude, insolent, or angry manner.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Destruction of Government Property",
+        "time_max": 20,
+        "fine": 400,
+        "desc": "A person who intentionally destroys or damages any government-owned and maintained property causing monetary loss.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Hit and Run",
+        "time_max": 25,
+        "fine": 800,
+        "desc": "1. A person who involved in an accident with a pedestrian, another car, or a fixed object, and leaves the scene without identifying himself or rendering aid to anyone who may need help <br><br>2. A person who does not stay on the scene to file a proper report with law enforcement.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Obstruction",
+        "time_max": 15,
+        "fine": 500,
+        "desc": "1. A person who shows a clear and motivated attempt to prevent a government employee from conducting their duties. This would include interfering with a peace officer on the traffic stop. <br><br>2. A person who fails to comply with an officer's lawful orders.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Possession of CDS",
+        "time_max": 10,
+        "fine": 200,
+        "desc": "The act of possessing more than the legal limit of a controlled substance",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Stalking",
+        "time_max": 20,
+        "fine": 600,
+        "desc": "A person who intentionally and maliciously follows or harasses another person who has made it known that they do not consent to such following or harassment.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Reckless Driving",
+        "time_max": 25,
+        "fine": 500,
+        "desc": "Driving in a willful or unjustifiable manner that disregards the safety and/or reckless abandon of consequences of actions.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Failure to Identify",
+        "time_max": 15,
+        "fine": 750,
+        "desc": "1. A person who, while being detained or under arrest by a peace officer, fails to provide a peace officer or other legal authority with the driver license or on an I.D. card or other identifiable information. <br><br>2. Any person who fails to provide identification shall be held in jail until he or she can be identified.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Criminal Threats",
+        "time_max": 25,
+        "fine": 400,
+        "desc": "A person who communicates to another that they will physically harm or kill such others, placing such others in a reasonable state of fear for their own safety.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Trespassing",
+        "time_max": 15,
+        "fine": 750,
+        "desc": "A person is guilty of trespassing when they enter a marked construction yard or a public place of business after they have been told they are trespassed. They knowingly travel along any railway by foot or vehicle when not authorized. They knowingly enter a residence and or dwelling of another person without owner consent.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Attempted GTA",
+        "time_max": 15,
+        "fine": 750,
+        "desc": "A person who attempts to, unlawfully, enter a vehicle with the purpose of theft by unlawful taking of that vehicle.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Filing a False Report",
+        "time_max": 10,
+        "fine": 500,
+        "desc": "A person who intentionally makes a false statement to a law enforcement officer or 911 dispatch message.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Misuse of a Government Hotline",
+        "time_max": 10,
+        "fine": 500,
+        "desc": "A person who performs prank calls, fake calls, or tries to incite mayhem through the public government line.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Joyriding",
+        "time_max": 15,
+        "fine": 1000,
+        "desc": "A person who takes or operates a vehicle without the owner’s consent, without the intent to deprive the owner of the vehicle permanently.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Possession of Burglary Tool",
+        "time_max": 10,
+        "fine": 1000,
+        "desc": "A person who has in their possession the appropriate combination of tools necessary to commit burglary, such as a lockpick, a tension bar along with a screwdriver, shimmy, or other appropriate items.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Street Racing",
+        "time_max": 60,
+        "fine": 800,
+        "desc": "A person who participates in an unsanctioned auto race which takes place on a public road, highway, or freeway.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Driving Under the Influence",
+        "time_max": 25,
+        "fine": 400,
+        "desc": "A person who operates a motor vehicle while under the influence of alcohol with a blood alcohol content greater than 0.08 BAC or while under the influence of legal or illegal drugs which impair the vehicle operator in such a way that it endangers the safety of others. LICENSE SUSPENSION",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Disorderly Conduct",
+        "time_max": 10,
+        "fine": 500,
+        "desc": "Any person who unlawfully fights in a public place.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Open Container",
+        "time_max": 15,
+        "fine": 750,
+        "desc": "No Driver or passenger shall drink or have an open container of any alcoholic beverage while a vehicle is operational.",
+        "hidden": false
+    },
+    {
+        "name": "Driving w/a Suspended or Revoked License",
+        "time_max": 10,
+        "fine": 150,
+        "desc": "No person shall drive a motor vehicle at any time when that person’s driving privilege is suspended or revoked.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Public Intoxication",
+        "time_max": 20,
+        "fine": 200,
+        "desc": "A person can not be under the influence of alcohol or any CDS in a public space where they could cause danger to themselves or someone else.",
+        "type": "Misdemeanor",
+        "hidden": false
+    },
+    {
+        "name": "Drivers License",
+        "time_max": 0,
+        "fine": 200,
+        "desc": "A person who operates a motor vehicle without a license on his or her person. ",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Speeding 5MPH-10MPH",
+        "time_max": 0,
+        "fine": 90,
+        "desc": "The act of driving 5-10MPH over the posted speed limit",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Speeding 10MPH-20MPH",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "The act of driving 10-20MPH over the posted speed limit",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Speeding 21MPH-30MPH",
+        "time_max": 0,
+        "fine": 150,
+        "desc": "The act of driving 21-30MPH over the posted speed limit",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Speeding 30MPH+",
+        "time_max": 0,
+        "fine": 500,
+        "desc": "The act of driving 30+MPH over the posted speed limit",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Failure to Yield to Emergency Vehicle",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "Failure to pull over to the side of the road and reduce speed when any emergency vehicle is active with lights on and/or sirens on. The driver must allow these emergency vehicles to pass. ",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Reckless Driving",
+        "time_max": 15,
+        "fine": 500,
+        "desc": "Driving in a willful or unjustifiable manner that disregards the safety and/or reckless abandon of consequences of actions.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Broken Windshield",
+        "time_max": 0,
+        "fine": 50,
+        "desc": "Any amount of physical damage to the windshield that impairs vision may cause unsafe operation of the vehicle. This includes the lack of a windshield.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Unregistered Motor Vehicle",
+        "time_max": 0,
+        "fine": 150,
+        "desc": "Operation of a Motor Vehicle on any public roadway without current and valid registration.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Failure to Obey Traffic Control Devices",
+        "time_max": 0,
+        "fine": 250,
+        "desc": "1. You must remain stopped until the traffic control devices turn green. <br><br>2. Right on red is permitted, after a complete stop and yielding to all oncoming traffic. The driver may then continue turning right, using caution.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Following Distance",
+        "time_max": 0,
+        "fine": 150,
+        "desc": "The driver of a vehicle shall not follow another vehicle more closely than is reasonable and prudent, having due regard for the speed of such vehicle and the traffic upon, and the condition of, the roadway.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Failure to Stop at a Stop Sign",
+        "time_max": 0,
+        "fine": 150,
+        "desc": "A driver must come to a complete stop at the stop sign.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Failure to yield right of way to traffic",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "Fail to come to a complete stop before entering any establish roadway. This includes Intersections not marked with a red light, stop signs or stop line while be considered failure to yield.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Illegal Passing",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "Passing another vehicle by a shoulder, median, or solid lines. Passing must be completely made without interfering with safe operation of any approaching vehicle from the opposite direction. You can pass when it’s a dotted yellow line on your side of the road.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Illegal turn/u-turn",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "Performing a U-turn that is crosses lanes of traffic where a sign prohibits. Performing a turn at a stop sign or red light without coming to a complete stop, or failure to yield to pedestrians. Making a left-hand turn were signs or road marking posted prohibit such a turn.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Impeding flow of traffic",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "You shall not go below the speed limit to impede or block the flow of traffic except when it is necessary to do so for safety or due to compliance with law enforcement instructions.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Driving while Opposing traffic",
+        "time_max": 0,
+        "fine": 150,
+        "desc": "Driving on the left side of the road against opposing traffic or driving opposing oneway traffic.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Commercial Moving or Traffic Violations",
+        "time_max": 0,
+        "fine": 200,
+        "desc": "Any traffic violations committed at any time while driving or operating a Commercial Vehicle.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Visible Plate",
+        "time_max": 0,
+        "fine": 50,
+        "desc": "License plates are issued by the Department of Motor Vehicles for use upon a vehicle, they shall be attached to the vehicle for which they were issued.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Unroadworthy Vehicle",
+        "time_max": 0,
+        "fine": 300,
+        "desc": "The vehicle has been damaged too heavily to be safe to drive to a repair shop.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Driving without lights",
+        "time_max": 0,
+        "fine": 75,
+        "desc": "Failure to use headlights in low light conditions or headlights for visibility while on roads.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Tail Light or Headlight Out",
+        "time_max": 0,
+        "fine": 60,
+        "desc": "Failure to have a working and illuminating headlights and/or taillights. This includes having a broken set of either headlight and/or taillights.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Loitering",
+        "time_max": 0,
+        "fine": 50,
+        "desc": "Intentionally standing or waiting idly without apparent purpose, in area or on property with No Loitering signs. This only applies to those who are unwilling to vacate the area.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Littering",
+        "time_max": 0,
+        "fine": 100,
+        "desc": "It is unlawful to litter or cause to be littered in or upon public or private property. A person, firm, or corporation violating this section is guilty of an infraction.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Illegally Parked Vehicle",
+        "time_max": 0,
+        "fine": 60,
+        "desc": "Parking a vehicle where prohibited, ie Fire lanes, sidewalks, any area that is marked by red paint. This also includes parking  parking in a manner that could cause damage to property.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Jaywalking",
+        "time_max": 0,
+        "fine": 50,
+        "desc": "Crosses a road without the use of a crosswalk.",
+        "type": "Traffic",
+        "hidden": false
+    },
+    {
+        "name": "Perjury",
+        "time_max": 0,
+        "fine": 0,
+        "desc": "the offense of willfully telling an untruth in a court after having taken an oath or affirmation..",
+        "type": "Felony",
+        "hidden": false
+    }
+]

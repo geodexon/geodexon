@@ -1,0 +1,18 @@
+[
+    {
+        "statusName": "bleeding",
+        "statusEvent": "Status.Bleed",
+        "timeInterval": 5,
+        "allowClient": true,
+        "defaultTime": 30,
+        "isTemp": true
+    },
+    {
+        "statusName": "hospital",
+        "statusEvent": "Status.Hospital",
+        "timeInterval": 1,
+        "allowClient": false,
+        "defaultTime": 7200,
+        "isTemp": true
+    }
+]

@@ -1,0 +1,68 @@
+#selector {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    user-select: none;
+    height: 80vh;
+    max-height: 60%;
+    top: 20vh;
+    right: calc(30vh * (16/9));
+    width: calc(15vh * (16/9));
+    pointer-events: none;
+    overflow-y: scroll;
+}
+
+.selector_option {
+    position: relative;
+    width: 99%;
+    background-color: var(--main-bg);
+    border: 0.1vh solid var(--main-lighter);
+    border-radius: 0.75vh;
+    margin-top: 1vh;
+    font-size: 1.5vh;
+    user-select: none;
+}
+
+.selector_option:hover {
+    background-color: var(--main-content);
+}
+
+.selector_hover {
+    background-color: var(--main-content);
+    transition: background-color 0.25s linear;
+}
+
+.selector_title_text {
+    position: relative;
+    color: white;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vh;
+    border-radius: 0vh;
+}
+
+.selector_desc {
+    position: relative;
+    color: gray;
+    bottom: 0%;
+    margin-top: 1vh;
+    margin-bottom: -0.9vh;
+    margin-left: 2.5%h;
+    width: 95%;
+    font-size: 1.2vh;
+}
+
+.selector_image {
+    position: absolute;
+    max-height: 18vh;
+    max-width: calc(32vh * (16/9));
+}
+
+.selector_sub {
+    position: absolute;
+    color: lightgray;
+    right: 2vh;
+    top: 0%;
+    bottom: 3vh;
+    font-size: 2vh;
+    line-height: 3.5vh;
+}

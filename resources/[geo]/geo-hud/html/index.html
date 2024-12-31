@@ -1,0 +1,120 @@
+<html>
+    <body>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script src="script.js"></script>
+        <script src="nui://geo-global/html/helpers/helper.js" type="text/javascript"></script>
+        <link href="nui://geo-global/html/helpers/helper.css" type="text/css" rel="stylesheet" />
+        <svg id="icons">
+            <symbol id = "lock" viewbox = "0 0 200 200">
+                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
+                    fill="currentcolor" stroke="none">
+                    <path d="M927 1690 c-107 -27 -204 -106 -253 -206 -26 -54 -29 -69 -32 -196
+                    -4 -125 -2 -136 15 -141 20 -7 132 -27 145 -27 4 0 8 56 8 125 0 104 3 132 19
+                    163 69 134 234 161 333 56 47 -50 58 -92 58 -219 l0 -115 33 1 c17 0 55 6 82
+                    13 l50 11 0 130 c-1 121 -3 134 -29 191 -35 77 -112 154 -189 189 -64 30 -175
+                    41 -240 25z"/>
+                    <path d="M516 1069 l-26 -31 0 -338 0 -339 24 -28 24 -28 462 0 462 0 24 28
+                    24 28 0 339 0 340 -28 32 -29 31 -103 -22 c-237 -50 -469 -50 -694 -1 -50 11
+                    -95 20 -102 20 -7 0 -24 -14 -38 -31z m534 -184 c56 -29 68 -102 26 -152 l-25
+                    -29 24 -94 c13 -52 22 -97 19 -102 -7 -10 -181 -10 -188 0 -3 5 6 51 19 103
+                    l24 94 -24 25 c-18 18 -25 37 -25 64 0 47 13 72 48 90 35 20 66 20 102 1z"/>
+                </g>
+            </symbol>
+
+            <symbol id = "belt" viewbox = "0 0 200 200">
+                <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
+                    fill="currentcolor" stroke="none">
+                    <path d="M441 1315 l-73 -75 -104 0 c-99 0 -104 -1 -109 -22 -3 -13 -4 -120
+                    -3 -238 l3 -215 111 -3 c96 -2 112 -5 120 -21 5 -10 37 -44 71 -75 l61 -57
+                    149 3 148 3 0 385 0 385 -151 3 -150 3 -73 -76z"/>
+                    <path d="M1187 1383 c-4 -3 -7 -37 -7 -74 l0 -68 -122 -3 c-119 -3 -123 -4
+                    -135 -28 -15 -31 -18 -375 -3 -414 10 -26 10 -26 134 -26 l125 0 3 -77 3 -78
+                    149 -3 149 -3 75 76 76 75 96 0 c61 0 100 4 108 12 13 13 18 421 6 452 -5 13
+                    -24 16 -109 16 l-103 0 -73 75 -72 75 -147 0 c-81 0 -150 -3 -153 -7z m-93
+                    -269 c8 -20 8 -208 0 -228 -9 -24 -71 -21 -84 3 -5 11 -10 61 -10 111 0 50 5
+                    100 10 111 13 24 75 27 84 3z"/>
+                </g>
+            </symbol>
+        </svg>
+        <div id = "plyrHud">
+
+            <div id = "rect">
+            </div>
+
+            <div class = "lock">
+                <svg viewBox="0 0 16 16">
+                    <use xlink:href="#lock" … ></use>
+                </svg>
+            </div>
+
+            <div class = "belt">
+                <svg viewBox="0 0 16 16">
+                    <use xlink:href="#belt" … ></use>
+                </svg>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "health" >
+                </div>
+            </div>
+
+            <div class = "container">
+                <div class = "clr"></div>
+                <div id = "armor" >
+                </div>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "weight" >
+                </div>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "hunger" >
+                </div>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "thirst" >
+                </div>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "stamina" >
+                </div>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "fuel" >
+                </div>
+            </div>
+
+            <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "nos" >
+                </div>
+            </div>
+            <!-- <div class = "container" >
+                <div class = "clr"></div>
+                <div id = "voice" >
+                </div>
+            </div> -->
+        </div>
+
+        <div id = "txt">
+            <p id = "speed">30</p>
+            <p id = "mph">MPH</p>
+            <p id = "location">Asshat mcgee n595</p>
+            <div style = "position: fixed; width: 40%; left: 30%; height: 3%; top: 3%">
+                <p id = "location2">Asshat mcgee n595</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,139 @@
+[
+    {
+        "Name": "CUS_TAT_001",
+        "LocalizedName": "Phoenix",
+        "HashNameMale": "pink_phoenix_01_M",
+        "HashNameFemale": "pink_phoenix_01_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+    {
+        "Name": "CUS_TAT_002",
+        "LocalizedName": "2Cool4Scool",
+        "HashNameMale": "pink_2cool_01_M",
+        "HashNameFemale": "pink_2cool_01_F",
+        "Zone": "ZONE_RIGHT_ARM",
+        "ZoneID": 0,
+        "Price": 150
+    },
+    {
+        "Name": "CUS_TAT_003",
+        "LocalizedName": "Octopus Garden",
+        "HashNameMale": "octounderbust_M",
+        "HashNameFemale": "octounderbust_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_004",
+        "LocalizedName": "Skull Support",
+        "HashNameMale": "skullunderbust_M",
+        "HashNameFemale": "skullunderbust_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_005",
+        "LocalizedName": "Wingspan",
+        "HashNameMale": "ravenunderbust_M",
+        "HashNameFemale": "ravenunderbust_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_006",
+        "LocalizedName": "Bouquet",
+        "HashNameMale": "wildflowers_M",
+        "HashNameFemale": "wildflowers_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_008",
+        "LocalizedName": "Vegvisir",
+        "HashNameMale": "Vegvisir_M",
+        "HashNameFemale": "Vegvisir_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_009",
+        "LocalizedName": "Lotus",
+        "HashNameMale": "Lotus_M",
+        "HashNameFemale": "Lotus_F",
+        "Zone": "ZONE_LEFT_ARM",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_011",
+        "LocalizedName": "Eye See You",
+        "HashNameMale": "wristeye_M",
+        "HashNameFemale": "wristeye_F",
+        "Zone": "ZONE_LEFT_ARM",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_TAT_012",
+        "LocalizedName": "Shamrock",
+        "HashNameMale": "shamrock_M",
+        "HashNameFemale": "shamrock_F",
+        "Zone": "ZONE_TORSO",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_SCAR_001",
+        "LocalizedName": "Eye Scar",
+        "HashNameMale": "scar01_M",
+        "HashNameFemale": "scar01_F",
+        "Zone": "ZONE_HEAD",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_SCAR_002",
+        "LocalizedName": "Lip Scar",
+        "HashNameMale": "scar02_M",
+        "HashNameFemale": "scar02_F",
+        "Zone": "ZONE_HEAD",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_RING_001",
+        "LocalizedName": "Silver Band",
+        "HashNameMale": "weddingringsilver_M",
+        "HashNameFemale": "weddingringsilver_F",
+        "Zone": "ZONE_LEFT_ARM",
+        "ZoneID": 0,
+        "Price": 150
+    },
+
+    {
+        "Name": "CUS_RING_002",
+        "LocalizedName": "Gold Band",
+        "HashNameMale": "weddingringgold_M",
+        "HashNameFemale": "weddingringgold_F",
+        "Zone": "ZONE_LEFT_ARM",
+        "ZoneID": 0,
+        "Price": 150
+    }
+]
